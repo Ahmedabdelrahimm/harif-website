@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11 حريف — منصة اكتشاف وتطوير مواهب كرة القدم</title>
+  <meta name="description" content="المنصة الأولى لاكتشاف وتطوير مواهب كرة القدم في مصر. سجّل الآن كلاعب وتعرف على أقرب جولة اختبار لمحافظتك." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<header class="navbar" role="banner">
+  <div class="container navbar__inner">
+
+    <!-- Logo (RTL: right side = start) -->
+    <a href="/" class="navbar__logo" aria-label="الصفحة الرئيسية لـ 11 حريف">
+      <img src="assets/logo.svg" alt="11 حريف" />
+    </a>
+
+    <!-- Navigation links -->
+    <nav class="navbar__links" role="navigation" aria-label="القائمة الرئيسية">
+      <a href="#hero"      class="navbar__link active">الرئيسية</a>
+      <a href="#about"     class="navbar__link">من نحن</a>
+      <a href="#features"  class="navbar__link">كيف يعمل</a>
+      <a href="#tryouts"   class="navbar__link">الاختبارات</a>
+      <a href="#news"      class="navbar__link">أخبار الحريف</a>
+      <a href="#contact"   class="navbar__link">اتصل بنا</a>
+    </nav>
+
+    <!-- CTA -->
+    <a href="#register" class="navbar__cta">سجل الآن</a>
+
+    <!-- Mobile hamburger -->
+    <button class="navbar__hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<nav id="mobile-menu" class="navbar__mobile" aria-label="قائمة الموبايل">
+  <a href="#hero"      class="navbar__link">الرئيسية</a>
+  <a href="#about"     class="navbar__link">من نحن</a>
+  <a href="#features"  class="navbar__link">كيف يعمل</a>
+  <a href="#tryouts"   class="navbar__link">الاختبارات</a>
+  <a href="#news"      class="navbar__link">أخبار الحريف</a>
+  <a href="#contact"   class="navbar__link">اتصل بنا</a>
+  <a href="#register"  class="navbar__cta">سجل الآن</a>
+</nav>
+
+
+<main>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero" class="hero" aria-labelledby="hero-heading" style="margin-top:84px">
+
+  <!-- Background image -->
+  <div class="hero__bg" aria-hidden="true">
+    <img src="assets/hero-bg.jpg" alt="" loading="eager" fetchpriority="high" />
+  </div>
+
+  <!-- Gradient overlay -->
+  <div class="hero__gradient" aria-hidden="true"></div>
+
+  <!-- Content -->
+  <div class="container hero__content">
+
+    <span class="hero__badge">THE ELITE SCOUTING PLATFORM</span>
+
+    <h1 id="hero-heading" class="hero__heading">
+      اكتشف موهبتك.
+      <span>ابنِ مستقبلك.</span>
+    </h1>
+
+    <p class="hero__sub">
+      المنصة الأولى لاكتشاف وتطوير مواهب كرة القدم في مصر.<br />
+      نضعك على الطريق الصحيح نحو الاحتراف العالمي.
+    </p>
+
+    <div class="hero__actions">
+      <a href="#register" class="btn btn--primary">سجّل الآن كلاعب</a>
+      <a href="#tryouts"  class="btn btn--outline">تعرف على الاختبارات</a>
+    </div>
+
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero__scroll" aria-hidden="true">
+    <span class="hero__scroll-dot"></span>
+    <span class="hero__scroll-dot"></span>
+    <span class="hero__scroll-dot"></span>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════ -->
+<div class="stats-bar-wrapper" aria-label="إحصائيات المنصة">
+  <div class="stats-bar">
+
+    <div class="stats-bar__item">
+      <span class="stats-bar__number num" aria-label="خمسون ألفاً زائد">50,000+</span>
+      <span class="stats-bar__label">لاعب مسجل</span>
+    </div>
+
+    <div class="stats-bar__item">
+      <span class="stats-bar__number num" aria-label="ثمانية عشر">18</span>
+      <span class="stats-bar__label">نادي شريك</span>
+    </div>
+
+    <div class="stats-bar__item">
+      <span class="stats-bar__number num" aria-label="أربعون">40</span>
+      <span class="stats-bar__label">جولة اختبار</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     FEATURES — BENTO GRID
+══════════════════════════════════════ -->
+<section id="features" class="features" aria-labelledby="features-heading">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2 id="features-heading" class="section-heading__title">لماذا تختار 11 حريف؟</h2>
+      <div class="section-heading__bar" aria-hidden="true"></div>
+    </div>
+
+    <div class="bento" role="list">
+
+      <!-- Card 1: تطوير مستمر (yellow) -->
+      <article class="bento__card bento__card--yellow" role="listitem">
+        <div>
+          <img src="assets/icon-growth.svg" alt="" class="bento__icon" aria-hidden="true" />
+          <h3 class="bento__heading">تطوير مستمر</h3>
+        </div>
+        <p class="bento__body">
+          لا نكتفي بالاكتشاف، بل نقدم برامج تدريبية متخصصة لكل لاعب لتحسين نقاط الضعف وتعزيز المهارات.
+        </p>
+      </article>
+
+      <!-- Card 2: الشفافية المطلقة (dark blue wide) -->
+      <article class="bento__card bento__card--blue-wide" role="listitem">
+        <div class="bento__bg" aria-hidden="true">
+          <img src="assets/feature1-bg.jpg" alt="" />
+        </div>
+        <div>
+          <img src="assets/icon-eye.svg" alt="" class="bento__icon" aria-hidden="true" />
+          <h3 class="bento__heading">الشفافية المطلقة</h3>
+          <div style="margin-top:16px">
+            <p class="bento__body">
+              نحن نضمن عدالة التقييم لكل موهبة. تقاريرنا تعتمد على بيانات دقيقة واختبارات فنية عالمية يشرف عليها نخبة من الخبراء.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: جاهز للاختبار (red CTA) -->
+      <article class="bento__card bento__card--red" role="listitem">
+        <button class="bento__cta-btn">احجز الآن</button>
+        <div class="bento__meta">
+          <h3 class="bento__heading">جاهز للاختبار القادم؟</h3>
+          <p class="bento__body">احجز مكانك الآن في أقرب جولة اختبار لمحافظتك.</p>
+        </div>
+      </article>
+
+      <!-- Card 4: فرصة متكافئة (light blue) -->
+      <article class="bento__card bento__card--light" role="listitem">
+        <div>
+          <img src="assets/icon-equal.svg" alt="" class="bento__icon" aria-hidden="true" />
+          <h3 class="bento__heading">فرصة متكافئة</h3>
+        </div>
+        <p class="bento__body">
+          من أسوان للإسكندرية، نصل لكل موهبة مهما كان موقعها الجغرافي. حلمك يبدأ هنا.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     COUNTDOWN
+══════════════════════════════════════ -->
+<section id="tryouts" class="countdown" aria-labelledby="countdown-heading">
+  <div class="container">
+
+    <h2 id="countdown-heading" class="countdown__title">
+      العد التنازلي للاختبارات القادمة (القاهرة)
+    </h2>
+
+    <div class="countdown__grid reveal" role="timer" aria-live="polite" aria-label="العد التنازلي">
+
+      <div class="countdown__unit">
+        <div id="cd-days"    class="countdown__number num" aria-label="الأيام">00</div>
+        <div class="countdown__label">أيام</div>
+      </div>
+
+      <div class="countdown__unit">
+        <div id="cd-hours"   class="countdown__number num" aria-label="الساعات">00</div>
+        <div class="countdown__label">ساعات</div>
+      </div>
+
+      <div class="countdown__unit">
+        <div id="cd-minutes" class="countdown__number num" aria-label="الدقائق">00</div>
+        <div class="countdown__label">دقائق</div>
+      </div>
+
+      <div class="countdown__unit">
+        <div id="cd-seconds" class="countdown__number num" aria-label="الثواني">00</div>
+        <div class="countdown__label">ثواني</div>
+      </div>
+
+    </div>
+
+    <div class="countdown__info reveal reveal-delay-2">
+      <p class="countdown__date">التاريخ: 15 أكتوبر 2025 — نادي المقاولون العرب</p>
+      <a href="#register" class="countdown__register">سجل في هذه الجولة</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PARTNERS
+══════════════════════════════════════ -->
+<section id="partners" class="partners" aria-labelledby="partners-heading">
+  <div class="container">
+
+    <p id="partners-heading" class="partners__label reveal">
+      بالشراكة مع رابطة الأندية المصرية المحترفة
+    </p>
+
+    <div class="partners__logos reveal reveal-delay-1" role="list" aria-label="الأندية الشريكة">
+      <img src="assets/club1.png" alt="النادي الشريك 1" class="partners__logo" loading="lazy" role="listitem" />
+      <img src="assets/club2.png" alt="النادي الشريك 2" class="partners__logo" loading="lazy" role="listitem" />
+      <img src="assets/club3.png" alt="النادي الشريك 3" class="partners__logo" loading="lazy" role="listitem" />
+      <img src="assets/club4.png" alt="النادي الشريك 4" class="partners__logo" loading="lazy" role="listitem" />
+      <img src="assets/club5.png" alt="النادي الشريك 5" class="partners__logo" loading="lazy" role="listitem" />
+      <img src="assets/club6.png" alt="النادي الشريك 6" class="partners__logo" loading="lazy" role="listitem" />
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer id="contact" class="footer" role="contentinfo">
+
+  <div class="footer__main container">
+
+    <!-- Brand column -->
+    <div class="footer__brand reveal reveal-delay-3">
+      <div class="footer__logo">
+        <img src="assets/logo.svg" alt="11 حريف" />
+      </div>
+      <p class="footer__tagline">
+        المستقبل يبدأ من هنا. منصتكم الأولى للوصول إلى القمة في عالم كرة القدم المصرية والعالمية.
+      </p>
+      <div class="footer__socials" aria-label="حسابات التواصل الاجتماعي">
+        <a href="#" class="footer__social-btn" aria-label="إنستغرام">
+          <img src="assets/social-ig.svg" alt="" aria-hidden="true" />
+        </a>
+        <a href="#" class="footer__social-btn" aria-label="تويتر">
+          <img src="assets/social-tw.svg" alt="" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <nav class="footer__col reveal reveal-delay-2" aria-labelledby="footer-links-heading">
+      <h3 id="footer-links-heading" class="footer__col-title">روابط سريعة</h3>
+      <ul class="footer__links">
+        <li><a href="#about"   class="footer__link">من نحن</a></li>
+        <li><a href="#journey" class="footer__link">رحلة اللاعب</a></li>
+        <li><a href="#tryouts" class="footer__link">مواقع الاختبارات</a></li>
+        <li><a href="#success" class="footer__link">قصص النجاح</a></li>
+      </ul>
+    </nav>
+
+    <!-- Support links -->
+    <nav class="footer__col reveal reveal-delay-1" aria-labelledby="footer-support-heading">
+      <h3 id="footer-support-heading" class="footer__col-title">الدعم والخصوصية</h3>
+      <ul class="footer__links">
+        <li><a href="#privacy"  class="footer__link">سياسة الخصوصية</a></li>
+        <li><a href="#terms"    class="footer__link">الشروط والأحكام</a></li>
+        <li><a href="#sitemap"  class="footer__link">خريطة الموقع</a></li>
+        <li><a href="#faq"      class="footer__link">الأسئلة الشائعة</a></li>
+      </ul>
+    </nav>
+
+    <!-- Newsletter -->
+    <div class="footer__col reveal" aria-labelledby="footer-newsletter-heading">
+      <h3 id="footer-newsletter-heading" class="footer__col-title">النشرة الإخبارية</h3>
+      <p class="footer__newsletter-desc">اشترك لتصلك مواعيد الاختبارات الجديدة.</p>
+      <form class="footer__form" novalidate aria-label="نموذج الاشتراك في النشرة">
+        <label for="newsletter-email" class="sr-only">بريدك الإلكتروني</label>
+        <input
+          id="newsletter-email"
+          type="email"
+          class="footer__input"
+          placeholder="بريدك الإلكتروني"
+          autocomplete="email"
+          required
+        />
+        <button type="submit" class="footer__subscribe">اشترك</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="footer__bottom">
+    <p class="footer__copyright">© 2024 11 حريف. جميع الحقوق محفوظة.</p>
+  </div>
+
+</footer>
+
+
+<!-- Scripts -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
