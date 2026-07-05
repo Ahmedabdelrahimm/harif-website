@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>التسجيل — 11 حريف</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" /><link rel="stylesheet" href="css/base.css" /><link rel="stylesheet" href="css/components.css" /><link rel="stylesheet" href="css/animations.css" /><link rel="stylesheet" href="css/pages.css" />
+</head>
+<body style="padding-top:84px">
+
+<header class="navbar"><div class="container navbar__inner">
+  <a href="index.html" class="navbar__logo"><img src="assets/logo.svg" alt="11 حريف" /></a>
+  <nav class="navbar__links"><a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a></nav>
+  <a href="register.html" class="navbar__cta">سجل الآن</a>
+  <button class="navbar__hamburger" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+</div></header>
+<nav id="mobile-menu" class="navbar__mobile"><a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a><a href="register.html" class="navbar__cta">سجل الآن</a></nav>
+
+<main>
+
+<section class="section" style="min-height:calc(100vh - 84px);padding-block:60px" aria-labelledby="register-heading">
+  <div class="container">
+
+    <!-- Step tabs -->
+    <nav class="register-steps" aria-label="خطوات التسجيل">
+      <div class="register-step active" aria-current="step">البيانات الشخصية</div>
+      <div class="register-step">بيانات اللاعب</div>
+      <div class="register-step">اختيار الاختبار</div>
+    </nav>
+
+    <!-- Form card -->
+    <div class="register-form animate-on-load">
+      <h1 id="register-heading">أنشئ ملفك <span style="color:var(--c-primary)">الشخصي</span></h1>
+      <p class="sub">ابدأ رحلتك مع منصة 11 حريف. أكمل بياناتك لتسجيل اسمك في قائمة الاختبارات القادمة.</p>
+
+      <form novalidate aria-label="نموذج التسجيل">
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="first-name">الاسم الأول</label>
+            <input id="first-name" type="text" placeholder="محمد" autocomplete="given-name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="last-name">الاسم الأخير</label>
+            <input id="last-name" type="text" placeholder="أحمد" autocomplete="family-name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="birth-date">تاريخ الميلاد</label>
+            <input id="birth-date" type="date" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">رقم الهاتف</label>
+            <input id="phone" type="tel" placeholder="01xxxxxxxxx" autocomplete="tel" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني</label>
+            <input id="email" type="email" placeholder="example@mail.com" autocomplete="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="gov">المحافظة</label>
+            <select id="gov" required>
+              <option value="" disabled selected>اختر المحافظة</option>
+              <option>القاهرة</option>
+              <option>الجيزة</option>
+              <option>الإسكندرية</option>
+              <option>الدقهلية</option>
+              <option>الغربية</option>
+              <option>المنيا</option>
+              <option>أسيوط</option>
+              <option>سوهاج</option>
+              <option>بورسعيد</option>
+              <option>الإسماعيلية</option>
+              <option>أخرى</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="position">المركز</label>
+            <select id="position" required>
+              <option value="" disabled selected>اختر مركزك</option>
+              <option>حارس مرمى</option>
+              <option>مدافع</option>
+              <option>لاعب وسط</option>
+              <option>جناح</option>
+              <option>مهاجم</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="tryout">جولة الاختبار</label>
+            <select id="tryout" required>
+              <option value="" disabled selected>اختر جولة الاختبار</option>
+              <option>اختبارات القاهرة — 15 يوليو</option>
+              <option>جولة الإسكندرية — 5 أغسطس</option>
+              <option>ملتقى الجنوب — 20 أغسطس</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="notes">ملاحظات إضافية (اختياري)</label>
+            <textarea id="notes" placeholder="أي معلومات إضافية تودّ مشاركتها مع فريقنا..."></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="width:100%;margin-block-start:24px;font-size:var(--text-lg);padding:16px">
+          التالي: بيانات اللاعب ←
+        </button>
+      </form>
+    </div>
+
+    <!-- Partner logos -->
+    <div class="register-partners">
+      <p>موثوق به من قبل أكبر الأندية المصرية</p>
+      <div class="register-partners__logos">
+        <span>الزمالك</span>
+        <span>الأهلي</span>
+        <span>فيوتشر</span>
+        <span>بيراميدز</span>
+        <span>المصري</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer"><div class="footer__main container"><div class="footer__brand reveal"><div class="footer__logo"><img src="assets/logo.svg" alt="11 حريف" /></div><p class="footer__tagline">المستقبل يبدأ من هنا.</p><div class="footer__socials"><a href="#" class="footer__social-btn"><img src="assets/social-ig.svg" alt="" /></a><a href="#" class="footer__social-btn"><img src="assets/social-tw.svg" alt="" /></a></div></div><nav class="footer__col reveal reveal-delay-1"><h3 class="footer__col-title">روابط سريعة</h3><ul class="footer__links"><li><a href="about.html" class="footer__link">من نحن</a></li><li><a href="how-it-works.html" class="footer__link">رحلة اللاعب</a></li><li><a href="tryouts.html" class="footer__link">مواقع الاختبارات</a></li><li><a href="success-stories.html" class="footer__link">قصص النجاح</a></li></ul></nav><nav class="footer__col reveal reveal-delay-2"><h3 class="footer__col-title">الدعم والخصوصية</h3><ul class="footer__links"><li><a href="#" class="footer__link">سياسة الخصوصية</a></li><li><a href="#" class="footer__link">الشروط والأحكام</a></li><li><a href="faq.html" class="footer__link">الأسئلة الشائعة</a></li></ul></nav><div class="footer__col reveal reveal-delay-3"><h3 class="footer__col-title">النشرة الإخبارية</h3><p class="footer__newsletter-desc">اشترك لتصلك مواعيد الاختبارات الجديدة.</p><form class="footer__form" novalidate><input type="email" class="footer__input" placeholder="بريدك الإلكتروني" /><button type="submit" class="footer__subscribe">اشترك</button></form></div></div><div class="footer__bottom"><p class="footer__copyright">© 2024 11 حريف. جميع الحقوق محفوظة.</p></div></footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

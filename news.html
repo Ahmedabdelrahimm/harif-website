@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الأخبار والمدونة — 11 حريف</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" /><link rel="stylesheet" href="css/base.css" /><link rel="stylesheet" href="css/components.css" /><link rel="stylesheet" href="css/animations.css" /><link rel="stylesheet" href="css/pages.css" />
+</head>
+<body style="padding-top:84px">
+
+<header class="navbar"><div class="container navbar__inner">
+  <a href="index.html" class="navbar__logo"><img src="assets/logo.svg" alt="11 حريف" /></a>
+  <nav class="navbar__links"><a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link active">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a></nav>
+  <a href="register.html" class="navbar__cta">سجل الآن</a>
+  <button class="navbar__hamburger" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+</div></header>
+<nav id="mobile-menu" class="navbar__mobile"><a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a><a href="register.html" class="navbar__cta">سجل الآن</a></nav>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="page-hero page-hero--light">
+  <div class="container page-hero__content" style="padding-block:72px 48px">
+    <h1 class="page-hero__title" style="color:var(--c-text-primary)">الأخبار<br /><span style="color:var(--c-primary)">والمدونة</span></h1>
+    <p class="page-hero__sub" style="color:var(--c-text-secondary)">آخر أخبار منصة 11 حريف، قصص النجاح، نصائح التطوير، وتقارير الاختبارات الجديدة.</p>
+  </div>
+</section>
+
+
+<!-- ── NEWS BODY ── -->
+<section class="section" aria-label="الأخبار">
+  <div class="container">
+
+    <!-- Search + tags -->
+    <div class="news-header reveal">
+      <div class="news-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" placeholder="ابحث في المقالات..." aria-label="بحث" />
+      </div>
+      <div class="news-tags">
+        <button class="news-tag active">الكل</button>
+        <button class="news-tag">الاختبارات</button>
+        <button class="news-tag">قصص نجاح</button>
+        <button class="news-tag">التطوير</button>
+        <button class="news-tag">الأندية</button>
+      </div>
+    </div>
+
+    <!-- Layout -->
+    <div class="news-layout reveal">
+
+      <!-- Sidebar -->
+      <aside class="news-sidebar">
+        <a href="#" class="news-card-small">
+          <div class="news-card-small__image"><img src="assets/hero-bg.jpg" alt="" /></div>
+          <div class="news-card-small__body">
+            <h3>10 نصائح لاجتياز اختبار الكشاف بنجاح</h3>
+            <span>5 يونيو 2025</span>
+          </div>
+        </a>
+        <a href="#" class="news-card-small">
+          <div class="news-card-small__image"><img src="assets/feature1-bg.jpg" alt="" /></div>
+          <div class="news-card-small__body">
+            <h3>موعد جولات اختبارات الإسكندرية 2025</h3>
+            <span>28 مايو 2025</span>
+          </div>
+        </a>
+        <a href="#" class="news-card-small">
+          <div class="news-card-small__image"><img src="assets/hero-bg.jpg" alt="" /></div>
+          <div class="news-card-small__body">
+            <h3>كيف تُعد ملف بيانات مميزاً للأندية؟</h3>
+            <span>20 مايو 2025</span>
+          </div>
+        </a>
+        <a href="#" class="news-card-small">
+          <div class="news-card-small__image"><img src="assets/feature1-bg.jpg" alt="" /></div>
+          <div class="news-card-small__body">
+            <h3>انضمام نادي بيراميدز لقائمة شركائنا</h3>
+            <span>15 مايو 2025</span>
+          </div>
+        </a>
+        <a href="#" class="news-card-small">
+          <div class="news-card-small__image"><img src="assets/hero-bg.jpg" alt="" /></div>
+          <div class="news-card-small__body">
+            <h3>ماذا يبحث الكشّاف الاحترافي في الموهبة الشابة؟</h3>
+            <span>10 مايو 2025</span>
+          </div>
+        </a>
+      </aside>
+
+      <!-- Featured article -->
+      <div>
+        <article class="news-featured">
+          <div class="news-featured__image">
+            <img src="assets/hero-bg.jpg" alt="مقال مميز" />
+          </div>
+          <div class="news-featured__body">
+            <p class="news-featured__meta">🏆 قصة نجاح · 1 يوليو 2025</p>
+            <h2>من ملاعب الحي إلى تدريبات الزمالك: قصة محمد عبد المنعم</h2>
+            <p>كان عمره 14 عاماً حين سمع لأول مرة عن منصة 11 حريف من صديق في المدرسة. لم يتردد كثيراً — سجّل بياناته، أرفق مقطع فيديو قصيراً من تدريب في الحي، ثم انتظر. بعد أسبوعين وصلته رسالة: "تهانينا، لقد اخترك أحد الكشافين لجولة اختبار خاصة."</p>
+            <p>اليوم، وبعد أقل من عام، يتدرب محمد ضمن أكاديمية الزمالك للناشئين، ويحلم بالوصول للفريق الأول قبل عيد ميلاده الثامن عشر. "الفرصة كانت هنا، فقط كنت بحاجة لمن يريها له."</p>
+            <a href="#" class="btn btn--primary" style="margin-block-start:4px">اقرأ المقال كاملاً</a>
+          </div>
+        </article>
+
+        <!-- Pagination -->
+        <nav class="pagination" aria-label="صفحات الأخبار">
+          <button class="pagination__btn active" aria-current="page">1</button>
+          <button class="pagination__btn">2</button>
+          <button class="pagination__btn">3</button>
+          <button class="pagination__btn" aria-label="الصفحة التالية">›</button>
+        </nav>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer"><div class="footer__main container"><div class="footer__brand reveal"><div class="footer__logo"><img src="assets/logo.svg" alt="11 حريف" /></div><p class="footer__tagline">المستقبل يبدأ من هنا.</p><div class="footer__socials"><a href="#" class="footer__social-btn"><img src="assets/social-ig.svg" alt="" /></a><a href="#" class="footer__social-btn"><img src="assets/social-tw.svg" alt="" /></a></div></div><nav class="footer__col reveal reveal-delay-1"><h3 class="footer__col-title">روابط سريعة</h3><ul class="footer__links"><li><a href="about.html" class="footer__link">من نحن</a></li><li><a href="how-it-works.html" class="footer__link">رحلة اللاعب</a></li><li><a href="tryouts.html" class="footer__link">مواقع الاختبارات</a></li><li><a href="success-stories.html" class="footer__link">قصص النجاح</a></li></ul></nav><nav class="footer__col reveal reveal-delay-2"><h3 class="footer__col-title">الدعم والخصوصية</h3><ul class="footer__links"><li><a href="#" class="footer__link">سياسة الخصوصية</a></li><li><a href="#" class="footer__link">الشروط والأحكام</a></li><li><a href="faq.html" class="footer__link">الأسئلة الشائعة</a></li></ul></nav><div class="footer__col reveal reveal-delay-3"><h3 class="footer__col-title">النشرة الإخبارية</h3><p class="footer__newsletter-desc">اشترك لتصلك مواعيد الاختبارات الجديدة.</p><form class="footer__form" novalidate><input type="email" class="footer__input" placeholder="بريدك الإلكتروني" /><button type="submit" class="footer__subscribe">اشترك</button></form></div></div><div class="footer__bottom"><p class="footer__copyright">© 2024 11 حريف. جميع الحقوق محفوظة.</p></div></footer>
+
+<script type="module" src="js/main.js"></script>
+<script>
+/* News tag filter (cosmetic) */
+document.querySelectorAll('.news-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    document.querySelectorAll('.news-tag').forEach(t => t.classList.remove('active'));
+    tag.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

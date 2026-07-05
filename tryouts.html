@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الاختبارات — 11 حريف</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body style="padding-top:84px">
+
+<header class="navbar" role="banner">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo"><img src="assets/logo.svg" alt="11 حريف" /></a>
+    <nav class="navbar__links" role="navigation">
+      <a href="index.html"        class="navbar__link">الرئيسية</a>
+      <a href="about.html"        class="navbar__link">من نحن</a>
+      <a href="how-it-works.html" class="navbar__link">كيف يعمل</a>
+      <a href="tryouts.html"      class="navbar__link active">الاختبارات</a>
+      <a href="news.html"         class="navbar__link">أخبار الحريف</a>
+      <a href="contact.html"      class="navbar__link">اتصل بنا</a>
+    </nav>
+    <a href="register.html" class="navbar__cta">سجل الآن</a>
+    <button class="navbar__hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav id="mobile-menu" class="navbar__mobile">
+  <a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a><a href="register.html" class="navbar__cta">سجل الآن</a>
+</nav>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="page-hero" aria-labelledby="tryouts-heading">
+  <div class="page-hero__bg"><img src="assets/hero-bg.jpg" alt="" /></div>
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    <span class="page-hero__badge">موسم 2026</span>
+    <h1 id="tryouts-heading" class="page-hero__title">طريقك نحو الاحتراف<br /><span class="highlight">يبدأ من هنا</span></h1>
+    <p class="page-hero__sub">انضم إلى أكبر تجمع لاكتشاف المواهب في مصر. نحن نبحث عن الحريف القادم الذي سيغير وجه الكرة المصرية.</p>
+    <a href="register.html" class="btn btn--primary">سجّل في أقرب اختبار إليك</a>
+  </div>
+</section>
+
+
+<!-- ── UPCOMING TRYOUTS ── -->
+<section class="section" aria-labelledby="tryout-list-heading">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2 id="tryout-list-heading" class="section-heading__title">جولات الاختبارات القادمة</h2>
+      <div class="section-heading__bar" aria-hidden="true"></div>
+    </div>
+    <div class="tryout-grid">
+
+      <article class="tryout-card reveal">
+        <div class="tryout-card__num num">01</div>
+        <h3>اختبارات القاهرة الكبرى</h3>
+        <div class="tryout-card__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          15 يوليو — 30 يوليو
+        </div>
+        <div class="tryout-card__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          استاد القاهرة الدولي
+        </div>
+        <div class="tryout-card__label">1,200+ مشارك</div>
+        <div class="tryout-card__footer">
+          <a href="register.html" class="btn btn--outline" style="width:100%;justify-content:center">عرض التفاصيل</a>
+        </div>
+      </article>
+
+      <article class="tryout-card tryout-card--featured reveal">
+        <div class="tryout-card__num num">02</div>
+        <span class="tryout-card__badge">الأكثر طلباً</span>
+        <h3>جولة عروس المتوسط</h3>
+        <div class="tryout-card__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          5 أغسطس — 12 أغسطس
+        </div>
+        <div class="tryout-card__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          نادي الاتحاد السكندري
+        </div>
+        <div class="tryout-card__label">850+ مشارك</div>
+        <div class="tryout-card__footer" style="border-color:rgba(255,255,255,.2)">
+          <a href="register.html" class="btn btn--primary" style="width:100%;justify-content:center;background:var(--c-accent);color:var(--c-accent-dark)">احجز مقعدك الآن</a>
+        </div>
+      </article>
+
+      <article class="tryout-card reveal">
+        <div class="tryout-card__num num">03</div>
+        <h3>ملتقى مواهب الجنوب</h3>
+        <div class="tryout-card__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          20 أغسطس — 27 أغسطس
+        </div>
+        <div class="tryout-card__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          استاد أسيوط الرياضي
+        </div>
+        <div class="tryout-card__label">600+ مشارك</div>
+        <div class="tryout-card__footer">
+          <a href="register.html" class="btn btn--outline" style="width:100%;justify-content:center">عرض التفاصيل</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── MAP + CRITERIA ── -->
+<section class="section" style="background:var(--c-bg)">
+  <div class="container">
+    <div class="map-section">
+      <div>
+        <span class="section-label">تغطيتنا في مصر</span>
+        <h2 class="section-title">نصل إلى كل<br /><span class="highlight">محافظة</span></h2>
+        <ul class="map-section__list reveal">
+          <li>القاهرة والجيزة</li>
+          <li>الإسكندرية</li>
+          <li>الدقهلية</li>
+          <li>المنيا وأسيوط</li>
+          <li>بورسعيد والسويس</li>
+        </ul>
+      </div>
+      <div class="map-section__map reveal">
+        <img src="assets/hero-bg.jpg" alt="خريطة مصر" style="opacity:.4;border-radius:var(--r-xl)" />
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--c-white);font-size:var(--text-xl);font-weight:700;text-align:center">
+          تغطية<br />شاملة<br />لجمهورية مصر العربية
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── EVALUATION CRITERIA ── -->
+<section class="section" aria-labelledby="criteria-heading">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2 id="criteria-heading" class="section-heading__title">معايير التقييم الفني</h2>
+      <div class="section-heading__bar" aria-hidden="true"></div>
+    </div>
+    <div class="criteria-grid">
+      <article class="criteria-card reveal">
+        <div class="criteria-card__icon">⚡</div>
+        <div>
+          <h3>السرعة</h3>
+          <p>قياس سرعة الاستجابة، الجري بالكرة وبدونها، والقدرة على تغيير الاتجاه المفاجئ.</p>
+        </div>
+      </article>
+      <article class="criteria-card reveal">
+        <div class="criteria-card__icon">💪</div>
+        <div>
+          <h3>اللياقة</h3>
+          <p>التحمل البدني العالي والقدرة على الحفاظ على مستوى الأداء طوال مدة المباراة.</p>
+        </div>
+      </article>
+      <article class="criteria-card reveal">
+        <div class="criteria-card__icon">⚽</div>
+        <div>
+          <h3>المهارة</h3>
+          <p>التحكم في الكرة، دقة التمرير، مهارات المراوغة، والقدرة على التسديد المتقن.</p>
+        </div>
+      </article>
+      <article class="criteria-card reveal">
+        <div class="criteria-card__icon">🧠</div>
+        <div>
+          <h3>الأداء التكتيكي</h3>
+          <p>الوعي بالمركز، قراءة اللعب، التحرك الذكي في المساحات، والعمل الجماعي.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CTA ── -->
+<section class="cta-section" aria-label="دعوة للتسجيل">
+  <div class="container">
+    <h2 class="reveal">هل أنت الحريف القادم؟</h2>
+    <p class="reveal">لا تدع الفرصة تفوتك. سجل بياناتك الآن واحجز مكانك في تجارب الأداء القادمة في محافظتك.</p>
+    <div class="cta-section__actions reveal">
+      <a href="register.html" class="btn btn--primary">سجّل الآن</a>
+      <a href="contact.html"  class="btn btn--outline" style="border-color:rgba(255,255,255,.4);color:var(--c-white)">تواصل مع كشاف</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__main container">
+    <div class="footer__brand reveal"><div class="footer__logo"><img src="assets/logo.svg" alt="11 حريف" /></div><p class="footer__tagline">المستقبل يبدأ من هنا. منصتكم الأولى للوصول إلى القمة في عالم كرة القدم المصرية والعالمية.</p><div class="footer__socials"><a href="#" class="footer__social-btn"><img src="assets/social-ig.svg" alt="" /></a><a href="#" class="footer__social-btn"><img src="assets/social-tw.svg" alt="" /></a></div></div>
+    <nav class="footer__col reveal reveal-delay-1"><h3 class="footer__col-title">روابط سريعة</h3><ul class="footer__links"><li><a href="about.html" class="footer__link">من نحن</a></li><li><a href="how-it-works.html" class="footer__link">رحلة اللاعب</a></li><li><a href="tryouts.html" class="footer__link">مواقع الاختبارات</a></li><li><a href="success-stories.html" class="footer__link">قصص النجاح</a></li></ul></nav>
+    <nav class="footer__col reveal reveal-delay-2"><h3 class="footer__col-title">الدعم والخصوصية</h3><ul class="footer__links"><li><a href="#" class="footer__link">سياسة الخصوصية</a></li><li><a href="#" class="footer__link">الشروط والأحكام</a></li><li><a href="#" class="footer__link">خريطة الموقع</a></li><li><a href="faq.html" class="footer__link">الأسئلة الشائعة</a></li></ul></nav>
+    <div class="footer__col reveal reveal-delay-3"><h3 class="footer__col-title">النشرة الإخبارية</h3><p class="footer__newsletter-desc">اشترك لتصلك مواعيد الاختبارات الجديدة.</p><form class="footer__form" novalidate><input type="email" class="footer__input" placeholder="بريدك الإلكتروني" /><button type="submit" class="footer__subscribe">اشترك</button></form></div>
+  </div>
+  <div class="footer__bottom"><p class="footer__copyright">© 2024 11 حريف. جميع الحقوق محفوظة.</p></div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

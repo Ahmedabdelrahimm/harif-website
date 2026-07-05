@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تواصل معنا — 11 حريف</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" /><link rel="stylesheet" href="css/base.css" /><link rel="stylesheet" href="css/components.css" /><link rel="stylesheet" href="css/animations.css" /><link rel="stylesheet" href="css/pages.css" />
+</head>
+<body style="padding-top:84px">
+
+<header class="navbar"><div class="container navbar__inner">
+  <a href="index.html" class="navbar__logo"><img src="assets/logo.svg" alt="11 حريف" /></a>
+  <nav class="navbar__links"><a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link active">اتصل بنا</a></nav>
+  <a href="register.html" class="navbar__cta">سجل الآن</a>
+  <button class="navbar__hamburger" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+</div></header>
+<nav id="mobile-menu" class="navbar__mobile"><a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a><a href="register.html" class="navbar__cta">سجل الآن</a></nav>
+
+<main>
+
+<section class="section" style="padding-block:72px" aria-labelledby="contact-heading">
+  <div class="container">
+
+    <div class="section-heading reveal" style="text-align:right">
+      <h1 id="contact-heading" class="section-heading__title" style="font-size:clamp(32px,4vw,52px)">تواصل <span style="color:var(--c-primary)">معنا</span></h1>
+      <div class="section-heading__bar" aria-hidden="true"></div>
+      <p class="section-desc" style="margin-block-start:8px">فريقنا متاح 6 أيام في الأسبوع للرد على استفساراتك. لا تتردد في التواصل بأي طريقة تناسبك.</p>
+    </div>
+
+    <div class="contact-layout reveal">
+
+      <!-- Contact form -->
+      <div class="contact-form">
+        <h2>أرسل لنا <span style="color:var(--c-primary)">رسالة</span></h2>
+        <p class="sub">سنرد على رسالتك خلال 24 ساعة في أيام العمل.</p>
+        <form novalidate aria-label="نموذج التواصل">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="c-name">الاسم الكامل</label>
+              <input id="c-name" type="text" placeholder="أحمد محمد" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="c-phone">رقم الهاتف</label>
+              <input id="c-phone" type="tel" placeholder="01xxxxxxxxx" autocomplete="tel" />
+            </div>
+            <div class="form-group full">
+              <label for="c-email">البريد الإلكتروني</label>
+              <input id="c-email" type="email" placeholder="example@mail.com" autocomplete="email" required />
+            </div>
+            <div class="form-group full">
+              <label for="c-subject">الموضوع</label>
+              <select id="c-subject">
+                <option value="" disabled selected>اختر موضوع رسالتك</option>
+                <option>استفسار عن اللاعبين</option>
+                <option>شراكة نادي</option>
+                <option>اقتراح أو شكوى</option>
+                <option>استفسار تقني</option>
+                <option>أخرى</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="c-msg">رسالتك</label>
+              <textarea id="c-msg" placeholder="اكتب رسالتك هنا..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%;margin-block-start:20px;font-size:var(--text-body);padding:14px">
+            إرسال الرسالة
+          </button>
+        </form>
+      </div>
+
+      <!-- Info card -->
+      <aside>
+        <div class="contact-info-card">
+          <h3>معلومات التواصل</h3>
+          <p>نحن هنا لمساعدتك في أي وقت. اختر القناة الأنسب لك.</p>
+
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div class="contact-info-item__text">
+              <span class="contact-info-item__label">البريد الإلكتروني</span>
+              <a href="mailto:info@11hareef.com">info@11hareef.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 10.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.44 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.77a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <div class="contact-info-item__text">
+              <span class="contact-info-item__label">رقم الهاتف</span>
+              <a href="tel:01100123456">01100 123 4567</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="contact-info-item__text">
+              <span class="contact-info-item__label">العنوان</span>
+              <span>الجيزة، القاهرة الكبرى، جمهورية مصر العربية</span>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <div class="contact-info-item__text">
+              <span class="contact-info-item__label">ساعات العمل</span>
+              <span>الأحد – الجمعة · 9 ص – 5 م</span>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="contact-map">
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:13px;gap:8px;height:100%;background:rgba(0,70,158,.6);border-radius:var(--r-md)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:28px;height:28px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              الجيزة، القاهرة الكبرى
+            </div>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div style="margin-block-start:24px;display:flex;gap:12px">
+          <a href="#" class="btn btn--outline" style="flex:1;justify-content:center;gap:8px;padding:12px 16px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            إنستغرام
+          </a>
+          <a href="#" class="btn btn--outline" style="flex:1;justify-content:center;gap:8px;padding:12px 16px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            تويتر
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer"><div class="footer__main container"><div class="footer__brand reveal"><div class="footer__logo"><img src="assets/logo.svg" alt="11 حريف" /></div><p class="footer__tagline">المستقبل يبدأ من هنا.</p><div class="footer__socials"><a href="#" class="footer__social-btn"><img src="assets/social-ig.svg" alt="" /></a><a href="#" class="footer__social-btn"><img src="assets/social-tw.svg" alt="" /></a></div></div><nav class="footer__col reveal reveal-delay-1"><h3 class="footer__col-title">روابط سريعة</h3><ul class="footer__links"><li><a href="about.html" class="footer__link">من نحن</a></li><li><a href="how-it-works.html" class="footer__link">رحلة اللاعب</a></li><li><a href="tryouts.html" class="footer__link">مواقع الاختبارات</a></li><li><a href="success-stories.html" class="footer__link">قصص النجاح</a></li></ul></nav><nav class="footer__col reveal reveal-delay-2"><h3 class="footer__col-title">الدعم والخصوصية</h3><ul class="footer__links"><li><a href="#" class="footer__link">سياسة الخصوصية</a></li><li><a href="#" class="footer__link">الشروط والأحكام</a></li><li><a href="faq.html" class="footer__link">الأسئلة الشائعة</a></li></ul></nav><div class="footer__col reveal reveal-delay-3"><h3 class="footer__col-title">النشرة الإخبارية</h3><p class="footer__newsletter-desc">اشترك لتصلك مواعيد الاختبارات الجديدة.</p><form class="footer__form" novalidate><input type="email" class="footer__input" placeholder="بريدك الإلكتروني" /><button type="submit" class="footer__subscribe">اشترك</button></form></div></div><div class="footer__bottom"><p class="footer__copyright">© 2024 11 حريف. جميع الحقوق محفوظة.</p></div></footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
