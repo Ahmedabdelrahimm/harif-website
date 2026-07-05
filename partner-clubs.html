@@ -1,171 +1,429 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الأندية الشريكة — 11 حريف</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/tokens.css" /><link rel="stylesheet" href="css/base.css" /><link rel="stylesheet" href="css/components.css" /><link rel="stylesheet" href="css/animations.css" /><link rel="stylesheet" href="css/pages.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأندية الشريكة — 11 حريف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#005dcc; --blue-d:#00469e; --red:#f64740;
+    --yellow:#fed00d; --yellow-t:#6f5900;
+    --ink:#101c2e; --body:#424753; --lite:#f9f9ff; --lite2:#f0f3ff;
+    --foot-t:#f0f3ff; --border:#e7eeff; --hero-sub:#d2deff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--lite);font-family:'Cairo',sans-serif;color:var(--ink);width:100%}
+  .canvas{width:100%;min-height:100vh;overflow-x:hidden;
+    background:linear-gradient(0deg,var(--lite) 0%,var(--lite) 100%),#fff}
+  p{margin:0}a{text-decoration:none}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;height:84px;
+    background:rgba(249,249,255,.9);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    box-shadow:0 10px 15px -3px rgba(16,28,46,.05),0 4px 6px -4px rgba(16,28,46,.05)}
+  .nav-inner{position:relative;height:84px;max-width:1280px;margin:0 auto;display:flex;align-items:center;
+    justify-content:space-between;padding:0 clamp(16px,3vw,24px)}
+  .logo img{height:52px;width:auto;display:block}
+  .nav-links{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:18px}
+  .nav-links a{font-weight:700;font-size:13px;line-height:24px;color:var(--ink);white-space:nowrap}
+  .nav-links a.active{color:var(--yellow);border-bottom:4px solid var(--yellow);padding-bottom:4px}
+  .btn-pill{background:var(--yellow);color:var(--yellow-t);font-weight:700;font-size:16px;line-height:24px;
+    border-radius:9999px;padding:8px 24px;display:inline-block}
+
+  /* HERO CARD */
+  .hero-wrap{padding:48px clamp(16px,3vw,24px) 80px}
+  .hero-card{max-width:1216px;margin:0 auto;background:var(--blue);border-radius:40px;padding:clamp(40px,6vw,80px);
+    box-shadow:0 25px 50px -12px rgba(0,0,0,.25);position:relative;overflow:hidden}
+  .hero-card__pattern{position:absolute;inset:0;opacity:.1;pointer-events:none;
+    background:linear-gradient(28deg,transparent 0%,transparent 3%,rgba(255,255,255,.1) 3%,rgba(255,255,255,.1) 6%)}
+  .hero-card__content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
+  .hero-card__copy{display:flex;flex-direction:column;align-items:flex-start;text-align:right;gap:32px}
+  .hero-card__badge{background:var(--yellow);color:var(--yellow-t);font-family:'Poppins',sans-serif;
+    font-weight:700;font-size:14px;line-height:20px;letter-spacing:1.4px;text-transform:uppercase;
+    padding:8px 24px;border-radius:9999px}
+  .hero-card__title{font-weight:900;font-size:clamp(40px,5vw,72px);line-height:1.05;color:#fff;text-align:right;width:100%}
+  .hero-card__sub{max-width:576px;width:100%;font-weight:300;font-size:20px;line-height:28px;color:var(--hero-sub);text-align:right}
+  .hero-card__actions{display:flex;flex-wrap:wrap;gap:16px;justify-content:flex-start;width:100%}
+  .hero-card__btn{display:inline-block;padding:16px 40px;border-radius:9999px;font-weight:700;font-size:18px;line-height:28px;white-space:nowrap}
+  .hero-card__btn--primary{background:var(--yellow);color:var(--yellow-t);font-weight:900;
+    box-shadow:0 8px 10px -6px rgba(0,0,0,.2),0 20px 25px -5px rgba(0,0,0,.2)}
+  .hero-card__btn--ghost{color:#fff;border:2px solid rgba(255,255,255,.2);backdrop-filter:blur(2px)}
+  .hero-card__media{position:relative;align-self:stretch;display:flex;align-items:center}
+  .hero-card__tilt{position:absolute;width:88%;height:88%;left:6%;top:50%;transform:translateY(-50%) rotate(6deg);
+    background:rgba(254,208,13,.2);border-radius:40px;z-index:0}
+  .hero-card__media img{position:relative;z-index:1;width:100%;height:400px;object-fit:cover;border-radius:30px;
+    box-shadow:0 25px 50px -12px rgba(0,0,0,.25);display:block}
+
+  /* CLUBS */
+  .clubs{padding:0 clamp(16px,3vw,24px) 96px}
+  .clubs__shell{max-width:1216px;margin:0 auto;width:100%}
+  .clubs__head{margin-bottom:48px}
+  .clubs__head-text{display:flex;flex-direction:column;align-items:flex-start;text-align:right;max-width:640px}
+  .clubs__head h2{font-weight:900;font-size:36px;line-height:40px;color:var(--blue-d);text-align:right;width:100%}
+  .clubs__bar{width:128px;height:8px;background:var(--yellow);margin-top:8px}
+  .clubs__desc{font-size:16px;line-height:24px;color:var(--body);text-align:right;margin-top:24px;max-width:384px}
+  .clubs__grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+  .club-card{background:var(--lite2);border-radius:12px;padding:24px 16px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:16px;text-align:center;min-height:160px}
+  .club-card img{width:80px;height:80px;object-fit:contain;display:block}
+  .club-card span{font-weight:700;font-size:14px;line-height:20px;color:var(--ink);opacity:.6}
+
+  /* BENEFITS */
+  .benefits{padding:32px clamp(16px,3vw,24px) 96px}
+  .benefits__inner{max-width:1216px;margin:0 auto;display:grid;grid-template-columns:0.95fr 1.05fr;gap:48px;align-items:start}
+  .benefits__copy{display:flex;flex-direction:column;align-items:flex-start;text-align:right;gap:24px;padding-top:8px}
+  .benefits__copy h2{font-weight:900;font-size:30px;line-height:36px;color:var(--blue-d);width:100%;text-align:right}
+  .benefits__copy>p{font-size:18px;line-height:29.25px;color:var(--body);width:100%;text-align:right}
+  .benefits__note{width:100%;padding:24px;background:rgba(254,208,13,.1);border-radius:16px;
+    border-inline-start:4px solid var(--yellow);text-align:right}
+  .benefits__note strong{display:block;font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;
+    line-height:24px;color:#725c00;margin-bottom:8px}
+  .benefits__note p{font-size:14px;line-height:20px;color:var(--ink)}
+  .benefits__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .benefit-card{background:#fff;border-radius:30px;padding:32px;box-shadow:0 1px 2px rgba(0,0,0,.05);
+    border:1px solid rgba(194,198,214,.1);display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:right}
+  .benefit-card__icon{width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+  .benefit-card__icon img{width:28px;height:28px;object-fit:contain;filter:brightness(0) saturate(100%) invert(14%) sepia(90%) saturate(1200%) hue-rotate(198deg)}
+  .benefit-card h3{font-weight:700;font-size:20px;line-height:28px;color:var(--ink);width:100%;text-align:right}
+  .benefit-card p{font-size:16px;line-height:24px;color:var(--body);width:100%;text-align:right}
+
+  /* TESTIMONIAL */
+  .testimonial-wrap{padding:0 clamp(16px,3vw,24px) 96px}
+  .testimonial{max-width:1216px;margin:0 auto;background:var(--blue);border-radius:50px;padding:80px clamp(24px,8vw,160px);
+    position:relative;overflow:hidden;text-align:center}
+  .testimonial__watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:'Poppins',sans-serif;font-style:italic;font-weight:900;font-size:clamp(80px,15vw,200px);
+    line-height:1;color:#fff;opacity:.05;pointer-events:none;white-space:nowrap}
+  .testimonial__content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:16px}
+  .testimonial__mark{width:48px;height:36px;margin-bottom:8px;position:relative}
+  .testimonial__mark::before,.testimonial__mark::after{content:"";position:absolute;width:16px;height:16px;
+    border-top:6px solid var(--yellow);border-inline-start:6px solid var(--yellow);border-radius:2px 0 0 0}
+  .testimonial__mark::before{right:22px;transform:rotate(180deg)}
+  .testimonial__mark::after{right:0}
+  .testimonial blockquote{font-weight:600;font-size:clamp(22px,3vw,36px);line-height:48px;color:#fff;max-width:832px}
+  .testimonial__avatar{width:80px;height:80px;border-radius:9999px;border:4px solid var(--yellow);
+    object-fit:cover;margin-top:8px}
+  .testimonial__name{font-weight:900;font-size:20px;line-height:28px;color:#fff;margin-top:8px}
+  .testimonial__role{font-size:16px;line-height:24px;color:var(--yellow)}
+
+  /* PACKAGES */
+  .packages{padding:32px clamp(16px,3vw,24px) 96px}
+  .packages__shell{max-width:1216px;margin:0 auto;width:100%}
+  .packages__head{text-align:center;margin-bottom:64px}
+  .packages__head h2{font-weight:900;font-size:36px;line-height:40px;color:var(--blue-d)}
+  .packages__head p{font-size:16px;line-height:24px;color:var(--body);margin-top:16px}
+  .packages__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:end}
+  .package{background:var(--lite2);border-radius:40px;padding:40px;border:1px solid rgba(194,198,214,.2);
+    display:flex;flex-direction:column;align-items:flex-start;text-align:right;min-height:420px}
+  .package--gold{background:var(--blue);box-shadow:0 25px 50px -12px rgba(0,70,158,.4);
+    position:relative;overflow:hidden;border:none;min-height:480px;margin-bottom:24px}
+  .package--gold::before{content:"";position:absolute;width:140px;height:140px;top:-52px;left:-52px;
+    background:var(--yellow);opacity:.2;border-radius:9999px}
+  .package__tier{font-family:'Poppins',sans-serif;font-weight:700;font-size:12px;line-height:16px;
+    text-transform:uppercase;padding:4.5px 16px;border-radius:9999px;margin-bottom:12px}
+  .package__tier--bronze{background:rgba(205,127,50,.2);color:#cd7f32}
+  .package__tier--silver{background:rgba(192,192,192,.4);color:#555}
+  .package__tier--gold{background:var(--yellow);color:var(--yellow-t)}
+  .package h3{font-weight:900;font-size:30px;line-height:36px;color:var(--ink);margin-bottom:32px;width:100%}
+  .package--gold h3{color:#fff}
+  .package__list{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:48px;flex:1;width:100%}
+  .package__list li{display:flex;align-items:center;justify-content:flex-start;gap:12px;direction:rtl;
+    font-size:16px;line-height:24px;color:var(--ink);width:100%}
+  .package--gold .package__list li{color:#fff}
+  .package__list li::before{content:"";flex-shrink:0;width:20px;height:20px;border-radius:4px;background:var(--yellow);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%236F5900' d='M7.5 14.2 3.8 10.5l1.4-1.4 2.3 2.3 6.3-6.3 1.4 1.4z'/%3E%3C/svg%3E");
+    background-size:14px;background-position:center;background-repeat:no-repeat}
+  .package__btn{display:block;width:100%;text-align:center;padding:16px;border-radius:9999px;
+    font-weight:900;font-size:16px;line-height:24px;border:2px solid var(--blue-d);color:var(--blue-d)}
+  .package--gold .package__btn{background:var(--yellow);color:var(--yellow-t);border:none;font-size:18px;line-height:28px}
+
+  /* CTA */
+  .cta-wrap{padding:0 clamp(16px,3vw,24px) 96px}
+  .cta{max-width:1216px;margin:0 auto;background:var(--yellow);border-radius:50px;padding:clamp(64px,8vw,96px) clamp(24px,6vw,96px);
+    text-align:center;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;inset:0;opacity:.2;pointer-events:none;
+    background:radial-gradient(ellipse at top left,rgba(0,70,158,.05) 0%,transparent 70%)}
+  .cta__inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:32px}
+  .cta h2{font-weight:900;font-size:clamp(36px,5vw,60px);line-height:1;color:var(--yellow-t);max-width:900px}
+  .cta>p{font-weight:500;font-size:20px;line-height:32.5px;color:rgba(111,89,0,.8);max-width:672px}
+  .cta__actions{display:flex;flex-direction:column;align-items:center;gap:20px}
+  .cta__email{display:inline-flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif;
+    font-weight:700;font-size:18px;line-height:28px;color:var(--yellow-t)}
+  .cta__email svg{width:20px;height:16px;fill:var(--yellow-t)}
+  .cta__btn{display:inline-block;padding:24px 64px;background:var(--blue-d);color:#fff;border-radius:9999px;
+    font-weight:900;font-size:24px;line-height:32px;box-shadow:0 25px 50px -12px rgba(0,70,158,.2)}
+
+  /* FOOTER */
+  .footer{background:var(--blue);border-top-left-radius:40px;border-top-right-radius:40px;color:#fff;width:100%}
+  .footer-top{display:flex;gap:40px;padding:64px clamp(16px,3vw,32px);align-items:flex-start;max-width:1280px;margin:0 auto}
+  .fcol{flex:1;display:flex;flex-direction:column;gap:16px}
+  .fcol h4{font-weight:900;font-size:20px;line-height:28px;color:#fff;text-align:right}
+  .fcol .desc{font-weight:400;font-size:16px;line-height:26px;color:var(--foot-t);text-align:right}
+  .fcol ul{list-style:none;display:flex;flex-direction:column;gap:16px;text-align:right}
+  .fcol ul li a{font-weight:400;font-size:16px;line-height:24px;color:var(--foot-t)}
+  .fcol ul li a:hover{color:#fff}
+  .brand-logo{display:flex;justify-content:flex-start;margin-bottom:8px}
+  .brand-logo img{width:79px;height:auto;display:block}
+  .social{display:flex;gap:16px;justify-content:flex-start;padding-top:8px}
+  .social a{width:40px;height:40px;border-radius:9999px;background:var(--yellow);display:flex;align-items:center;justify-content:center}
+  .social a img{width:20px;height:20px;display:block}
+  .news p{font-weight:400;font-size:16px;line-height:24px;color:var(--foot-t);text-align:right}
+  .news .inp{background:rgba(0,70,158,.2);border:1px solid rgba(0,70,158,.5);border-radius:9999px;
+    padding:6px 17px;text-align:right;color:#fff;font-size:16px;font-family:inherit;width:100%;outline:none}
+  .news .inp::placeholder{color:rgba(255,255,255,.4)}
+  .news .sub{background:var(--yellow);color:var(--yellow-t);font-weight:700;font-size:16px;line-height:24px;
+    border:none;border-radius:9999px;height:40px;width:100%;margin-top:16px;cursor:pointer}
+  .footer-bottom{border-top:1px solid rgba(0,93,204,.2);padding:32px 24px}
+  .footer-bottom p{opacity:.6;text-align:center;font-weight:400;font-size:16px;line-height:24px;color:var(--foot-t)}
+
+  @media (max-width:1024px){
+    .hero-card__content{grid-template-columns:1fr}
+    .hero-card__media img{height:320px}
+    .benefits__inner,.packages__grid{grid-template-columns:1fr}
+    .benefits__grid{grid-template-columns:1fr}
+    .clubs__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .clubs__head{flex-direction:column;align-items:flex-start}
+    .package--gold{margin-bottom:0;min-height:420px}
+  }
+  @media (max-width:768px){
+    .nav-links{display:none}
+    .footer-top{flex-direction:column}
+    .clubs__grid{grid-template-columns:1fr}
+    .cta__actions{flex-direction:column}
+  }
+</style>
 </head>
-<body style="padding-top:84px">
+<body>
+<div class="canvas">
 
-<header class="navbar"><div class="container navbar__inner">
-  <a href="index.html" class="navbar__logo"><img src="assets/logo.svg" alt="11 حريف" /></a>
-  <nav class="navbar__links"><a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a></nav>
-  <a href="register.html" class="navbar__cta">سجل الآن</a>
-  <button class="navbar__hamburger" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
-</div></header>
-<nav id="mobile-menu" class="navbar__mobile"><a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a><a href="register.html" class="navbar__cta">سجل الآن</a></nav>
-
-<main>
-
-<!-- ── HERO ── -->
-<section class="page-hero" aria-labelledby="clubs-heading">
-  <div class="page-hero__bg"><img src="assets/hero-bg.jpg" alt="" /></div>
-  <div class="page-hero__overlay"></div>
-  <div class="container page-hero__content">
-    <span class="page-hero__badge">شراكة استراتيجية</span>
-    <h1 id="clubs-heading" class="page-hero__title">شركاؤنا في<br /><span class="highlight">صناعة النجوم</span></h1>
-    <p class="page-hero__sub">نعمل مع أفضل الأندية المصرية في الدوري الممتاز والدرجة الأولى لتوفير مسارات واضحة لأفضل المواهب. شراكة حقيقية تبني جسراً بين الموهبة والاحتراف.</p>
-  </div>
-</section>
-
-
-<!-- ── CLUBS GRID ── -->
-<section class="section" aria-labelledby="clubs-list-heading">
-  <div class="container">
-    <div class="section-heading reveal">
-      <h2 id="clubs-list-heading" class="section-heading__title">الأندية الشريكة</h2>
-      <div class="section-heading__bar" aria-hidden="true"></div>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
+      <nav class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">من نحن</a>
+        <a href="how-it-works.html">كيف يعمل</a>
+        <a href="training.html">التدريب</a>
+        <a href="data-profiles.html">البيانات</a>
+        <a href="success-stories.html">قصص النجاح</a>
+        <a href="partner-clubs.html" class="active">الأندية</a>
+        <a href="tryouts.html">الاختبارات</a>
+        <a href="news.html">أخبار الحريف</a>
+        <a href="faq.html">الأسئلة</a>
+        <a href="contact.html">اتصل بنا</a>
+      </nav>
+      <a href="register.html" class="btn-pill">سجل الآن</a>
     </div>
-    <div class="clubs-grid">
-      <div class="club-item reveal"><img src="assets/club1.png" alt="الزمالك" /><span>الزمالك</span></div>
-      <div class="club-item reveal"><img src="assets/club2.png" alt="الأهلي" /><span>الأهلي</span></div>
-      <div class="club-item reveal"><img src="assets/club3.png" alt="فيوتشر" /><span>فيوتشر</span></div>
-      <div class="club-item reveal"><img src="assets/club4.png" alt="بيراميدز" /><span>بيراميدز</span></div>
-      <div class="club-item reveal"><img src="assets/club5.png" alt="المصري" /><span>المصري</span></div>
-      <div class="club-item reveal"><img src="assets/club6.png" alt="الاتحاد السكندري" /><span>الاتحاد</span></div>
-    </div>
-  </div>
-</section>
+  </header>
 
-
-<!-- ── HOW TO JOIN ── -->
-<section class="section" style="background:var(--c-bg)" aria-labelledby="join-heading">
-  <div class="container">
-    <div class="section-heading reveal">
-      <h2 id="join-heading" class="section-heading__title">كيف يمكن لنادي الانضمام؟</h2>
-      <div class="section-heading__bar" aria-hidden="true"></div>
-    </div>
-    <div class="steps-grid">
-      <article class="step-card reveal">
-        <div class="step-card__num num">01</div>
-        <h3>تقديم طلب الشراكة</h3>
-        <p>أرسل طلبًا عبر البريد الإلكتروني أو نموذج الاتصال مع تحديد نوع الشراكة المطلوبة.</p>
-      </article>
-      <article class="step-card reveal">
-        <div class="step-card__num num">02</div>
-        <h3>جلسة التعريف</h3>
-        <p>نعقد اجتماعًا مع مسؤولي النادي لشرح المنصة وتحديد الاحتياجات والفئات العمرية المستهدفة.</p>
-      </article>
-      <article class="step-card reveal">
-        <div class="step-card__num num">03</div>
-        <h3>توقيع بروتوكول التعاون</h3>
-        <p>اتفاقية رسمية تحدد أدوار وصلاحيات النادي في الوصول لبيانات اللاعبين وآليات الاختبارات المشتركة.</p>
-      </article>
-      <article class="step-card reveal">
-        <div class="step-card__num num">04</div>
-        <h3>البدء في الاكتشاف</h3>
-        <p>يحصل النادي فوراً على وصول للوحة التحكم الخاصة لاستعراض ملفات اللاعبين المناسبين لاحتياجاته.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-<!-- ── TESTIMONIAL ── -->
-<section class="section">
-  <div class="container">
-    <div class="quote-block reveal">
-      <div class="quote-block__logo">
-        <img src="assets/club1.png" alt="مدير الأكاديمية" />
+  <main>
+    <!-- HERO -->
+    <section class="hero-wrap" aria-labelledby="clubs-heading">
+      <div class="hero-card">
+        <div class="hero-card__pattern" aria-hidden="true"></div>
+        <div class="hero-card__content">
+          <div class="hero-card__copy">
+            <span class="hero-card__badge">PARTNER ECOSYSTEM</span>
+            <h1 id="clubs-heading" class="hero-card__title">نبني مستقبل<br>الكرة المصرية<br>معاً</h1>
+            <p class="hero-card__sub">انضم إلى شبكة الأندية الأكثر تطوراً في مصر. 11 حريف ليس مجرد<br>منصة، بل هو شريكك التقني لاكتشاف وتطوير المواهب الكروية<br>الناشئة.</p>
+            <div class="hero-card__actions">
+              <a href="#clubs" class="hero-card__btn hero-card__btn--primary">انضم كشريك</a>
+              <a href="#clubs" class="hero-card__btn hero-card__btn--ghost">تصفح الأندية</a>
+            </div>
+          </div>
+          <div class="hero-card__media">
+            <div class="hero-card__tilt" aria-hidden="true"></div>
+            <img src="assets/clubs-hero.jpg" alt="شركاء 11 حريف من الأندية">
+          </div>
+        </div>
       </div>
-      <div class="quote-block__text">
-        <blockquote>"منصة ١١ حريف وفّرت علينا سنوات من البحث. أصبحنا نعرف عن الموهبة كل ما يلزم قبل أن ندعوه للاختبار الرسمي في النادي. النتائج تتحدث عن نفسها."</blockquote>
-        <cite>مدير أكاديمية الكرة — نادي الزمالك</cite>
+    </section>
+
+    <!-- CLUBS -->
+    <section id="clubs" class="clubs" aria-labelledby="clubs-list-heading">
+      <div class="clubs__shell">
+        <div class="clubs__head">
+          <div class="clubs__head-text">
+            <h2 id="clubs-list-heading">أنديتنا الشريكة</h2>
+            <div class="clubs__bar" aria-hidden="true"></div>
+            <p class="clubs__desc">نفتخر بالتعاون مع أعرق الأندية المصرية والمراكز الرياضية<br>الطموحة عبر الجمهورية.</p>
+          </div>
+        </div>
+        <div class="clubs__grid">
+          <article class="club-card"><img src="assets/club1.png" alt=""><span>نادي القاهرة</span></article>
+          <article class="club-card"><img src="assets/club2.png" alt=""><span>صقور الدلتا</span></article>
+          <article class="club-card"><img src="assets/club3.png" alt=""><span>اتحاد السويس</span></article>
+          <article class="club-card"><img src="assets/club4.png" alt=""><span>شروق بورسعيد</span></article>
+          <article class="club-card"><img src="assets/club5.png" alt=""><span>طيبة سبورت</span></article>
+          <article class="club-card"><img src="assets/club6.png" alt=""><span>أسود الجيزة</span></article>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <!-- BENEFITS -->
+    <section class="benefits" aria-labelledby="benefits-heading">
+      <div class="benefits__inner">
+        <div class="benefits__copy">
+          <h2 id="benefits-heading">كيف تستفيد الأندية؟</h2>
+          <p>نوفر للأندية منظومة رقمية متكاملة تبدأ من رصد<br>الموهبة وصولاً إلى التوقيع الرسمي، مع تحليلات<br>بيانات دقيقة لكل لاعب.</p>
+          <div class="benefits__note">
+            <strong>Scouting Report v2.0</strong>
+            <p>أكثر من 500 كشاف معتمد يقومون بتغذية المنصة<br>بالبيانات يومياً.</p>
+          </div>
+        </div>
+        <div class="benefits__grid">
+          <article class="benefit-card">
+            <div class="benefit-card__icon"><img src="assets/Icon2.svg" alt="" aria-hidden="true"></div>
+            <h3>قاعدة بيانات ذكية</h3>
+            <p>الوصول لآلاف اللاعبين الموهوبين في كافة<br>المحافظات مع تصنيفات دقيقة لكل مركز.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-card__icon"><img src="assets/Icon3.svg" alt="" aria-hidden="true"></div>
+            <h3>إدارة الاختبارات</h3>
+            <p>تنظيم وجدولة اختبارات الناشئين إلكترونياً وتلقي<br>الطلبات وفرزها تلقائياً.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-card__icon"><img src="assets/Icon6.svg" alt="" aria-hidden="true"></div>
+            <h3>تحليل الأداء بالفيديو</h3>
+            <p>مقاطع فيديو تحليلية لكل لاعب توضح نقاط القوة<br>والضعف والذكاء الميداني.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-card__icon"><img src="assets/Icon7.svg" alt="" aria-hidden="true"></div>
+            <h3>توثيق العقود</h3>
+            <p>بيئة آمنة للتواصل مع وكلاء اللاعبين وإتمام عمليات<br>الانتقال بوضوح تام.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<!-- ── PACKAGES ── -->
-<section class="section" style="background:var(--c-bg)" aria-labelledby="packages-heading">
-  <div class="container">
-    <div class="section-heading reveal">
-      <h2 id="packages-heading" class="section-heading__title">باقات الشراكة</h2>
-      <div class="section-heading__bar" aria-hidden="true"></div>
-    </div>
-    <div class="package-grid">
+    <!-- TESTIMONIAL -->
+    <section class="testimonial-wrap" aria-label="شهادة شريك">
+      <div class="testimonial">
+        <div class="testimonial__watermark" aria-hidden="true">HAREEF</div>
+        <div class="testimonial__content">
+          <div class="testimonial__mark" aria-hidden="true"></div>
+          <blockquote>"بصفتي مديراً لقطاع الناشئين، وفرت لنا '11 حريف'<br>أكثر من 70% من وقت البحث التقليدي. الآن،<br>الكشافون يركزون على المهارة، بينما تتكفل المنصة<br>بالبيانات."</blockquote>
+          <img class="testimonial__avatar" src="assets/clubs-testimonial.jpg" alt="ك. أحمد حسن">
+          <p class="testimonial__name">ك. أحمد حسن</p>
+          <p class="testimonial__role">المدير الرياضي - نادي صقور الدلتا</p>
+        </div>
+      </div>
+    </section>
 
-      <div class="package-card package-card--gold reveal">
-        <div class="package-card__tier">Gold Partner</div>
-        <h3>الباقة الذهبية</h3>
-        <p class="package-card__price">تواصل معنا <span>سعر خاص</span></p>
+    <!-- PACKAGES -->
+    <section class="packages" aria-labelledby="packages-heading">
+      <div class="packages__shell">
+        <div class="packages__head">
+          <h2 id="packages-heading">باقات الشراكة</h2>
+          <p>اختر المستوى الذي يناسب طموحات ناديك واحتياجاته</p>
+        </div>
+        <div class="packages__grid">
+
+          <article class="package">
+            <span class="package__tier package__tier--bronze">BRONZE</span>
+            <h3>برونزي</h3>
+            <ul class="package__list">
+              <li>الوصول لقاعدة البيانات الأساسية</li>
+              <li>الإعلان عن الاختبارات السنوية</li>
+              <li>لوحة تحكم إحصائية مبسطة</li>
+            </ul>
+            <a href="contact.html" class="package__btn">تواصل معنا</a>
+          </article>
+
+          <article class="package package--gold">
+            <span class="package__tier package__tier--gold">RECOMMENDED</span>
+            <h3>ذهبي</h3>
+            <ul class="package__list">
+              <li>أولوية الوصول للمواهب النادرة</li>
+              <li>نظام متكامل لإدارة قطاع الناشئين</li>
+              <li>تحليل أداء متقدم بالذكاء الاصطناعي</li>
+              <li>دعم فني مخصص على مدار الساعة</li>
+              <li>كشاف خاص حصري للنادي</li>
+            </ul>
+            <a href="contact.html" class="package__btn">انضم للذهبية</a>
+          </article>
+
+          <article class="package">
+            <span class="package__tier package__tier--silver">SILVER</span>
+            <h3>فضي</h3>
+            <ul class="package__list">
+              <li>تقارير مفصلة عن اللاعبين</li>
+              <li>نظام حجز الاختبارات المتقدم</li>
+              <li>التواصل المباشر مع 50 كشاف</li>
+            </ul>
+            <a href="contact.html" class="package__btn">تواصل معنا</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-wrap" aria-label="دعوة للشراكة">
+      <div class="cta">
+        <div class="cta__inner">
+          <h2>هل ناديك مستعد للخطوة التالية؟</h2>
+          <p>كن جزءاً من الثورة الرقمية في عالم كرة القدم المصرية. ابدأ رحلة اكتشاف الأبطال<br>اليوم.</p>
+          <div class="cta__actions">
+            <a href="contact.html" class="cta__btn">انضم كشريك الآن</a>
+            <a href="mailto:partnerships@11hareef.com" class="cta__email">
+              partnerships@11hareef.com
+              <svg viewBox="0 0 20 16" aria-hidden="true"><path d="M0 0h20v16H0V0zm2 2l8 5 8-5H2zm16 2.2-8 5-8-5V14h16V4.2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="fcol">
+        <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
+        <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
+        <div class="social">
+          <a href="#" aria-label="إنستغرام"><img src="assets/social-ig.svg" alt=""></a>
+          <a href="#" aria-label="تويتر"><img src="assets/social-tw.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4>روابط سريعة</h4>
         <ul>
-          <li>وصول غير محدود لقاعدة البيانات</li>
-          <li>كشاف مخصص للنادي بدوام كامل</li>
-          <li>جولات اختبارات حصرية باسم النادي</li>
-          <li>تقارير مخصصة أسبوعية</li>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="how-it-works.html">رحلة اللاعب</a></li>
+          <li><a href="training.html">التدريب</a></li>
+          <li><a href="data-profiles.html">البيانات</a></li>
+          <li><a href="tryouts.html">مواقع الاختبارات</a></li>
+          <li><a href="success-stories.html">قصص النجاح</a></li>
+          <li><a href="partner-clubs.html">الأندية الشريكة</a></li>
         </ul>
-        <a href="contact.html" class="btn btn--primary" style="width:100%;text-align:center">ابدأ الشراكة</a>
       </div>
-
-      <div class="package-card package-card--silver reveal">
-        <div class="package-card__tier">Silver Partner</div>
-        <h3>الباقة الفضية</h3>
-        <p class="package-card__price">5,000 <span>جنيه / شهر</span></p>
+      <div class="fcol">
+        <h4>الدعم والخصوصية</h4>
         <ul>
-          <li>وصول لملفات 500 لاعب شهرياً</li>
-          <li>مشاركة في جولات الاختبار العامة</li>
-          <li>تقارير تحليلية شهرية</li>
-          <li>دعم بالبريد الإلكتروني</li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+          <li><a href="#">الشروط والأحكام</a></li>
+          <li><a href="#">خريطة الموقع</a></li>
+          <li><a href="faq.html">الأسئلة الشائعة</a></li>
         </ul>
-        <a href="contact.html" class="btn btn--outline" style="width:100%;text-align:center">تفاصيل أكثر</a>
       </div>
-
-      <div class="package-card package-card--bronze reveal">
-        <div class="package-card__tier">Bronze Partner</div>
-        <h3>الباقة البرونزية</h3>
-        <p class="package-card__price">2,000 <span>جنيه / شهر</span></p>
-        <ul>
-          <li>وصول لملفات 100 لاعب شهرياً</li>
-          <li>ظهور الشعار على المنصة</li>
-          <li>تقرير ربع سنوي</li>
-          <li>دعم تقني</li>
-        </ul>
-        <a href="contact.html" class="btn btn--outline" style="width:100%;text-align:center">تفاصيل أكثر</a>
+      <div class="fcol news">
+        <h4>النشرة الإخبارية</h4>
+        <p>اشترك لتصلك مواعيد الاختبارات الجديدة.</p>
+        <form onsubmit="return false">
+          <input class="inp" type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني">
+          <button class="sub" type="submit">اشترك</button>
+        </form>
       </div>
-
     </div>
-  </div>
-</section>
-
-
-<!-- ── CTA ── -->
-<section class="cta-section">
-  <div class="container">
-    <h2 class="reveal">ناديك يستحق أفضل المواهب</h2>
-    <p class="reveal">تواصل مع فريقنا اليوم لمعرفة كيف يمكن لمنصة ١١ حريف أن تدعم برامج الاكتشاف والتطوير لديكم.</p>
-    <div class="cta-section__actions reveal">
-      <a href="contact.html" class="btn btn--primary">تواصل معنا الآن</a>
+    <div class="footer-bottom">
+      <p>© 2024 11 حريف. جميع الحقوق محفوظة.</p>
     </div>
-  </div>
-</section>
+  </footer>
 
-</main>
-
-<footer class="footer"><div class="footer__main container"><div class="footer__brand reveal"><div class="footer__logo"><img src="assets/logo.svg" alt="11 حريف" /></div><p class="footer__tagline">المستقبل يبدأ من هنا.</p><div class="footer__socials"><a href="#" class="footer__social-btn"><img src="assets/social-ig.svg" alt="" /></a><a href="#" class="footer__social-btn"><img src="assets/social-tw.svg" alt="" /></a></div></div><nav class="footer__col reveal reveal-delay-1"><h3 class="footer__col-title">روابط سريعة</h3><ul class="footer__links"><li><a href="about.html" class="footer__link">من نحن</a></li><li><a href="how-it-works.html" class="footer__link">رحلة اللاعب</a></li><li><a href="tryouts.html" class="footer__link">مواقع الاختبارات</a></li><li><a href="success-stories.html" class="footer__link">قصص النجاح</a></li></ul></nav><nav class="footer__col reveal reveal-delay-2"><h3 class="footer__col-title">الدعم والخصوصية</h3><ul class="footer__links"><li><a href="#" class="footer__link">سياسة الخصوصية</a></li><li><a href="#" class="footer__link">الشروط والأحكام</a></li><li><a href="faq.html" class="footer__link">الأسئلة الشائعة</a></li></ul></nav><div class="footer__col reveal reveal-delay-3"><h3 class="footer__col-title">النشرة الإخبارية</h3><p class="footer__newsletter-desc">اشترك لتصلك مواعيد الاختبارات الجديدة.</p><form class="footer__form" novalidate><input type="email" class="footer__input" placeholder="بريدك الإلكتروني" /><button type="submit" class="footer__subscribe">اشترك</button></form></div></div><div class="footer__bottom"><p class="footer__copyright">© 2024 11 حريف. جميع الحقوق محفوظة.</p></div></footer>
-<script type="module" src="js/main.js"></script>
+</div>
 </body>
 </html>

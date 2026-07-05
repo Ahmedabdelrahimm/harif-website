@@ -634,7 +634,7 @@
   width: 60px;
   height: 52px;
   margin-block-end: var(--sp-4);
-  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 .footer__logo img { height: 100%; width: auto; }
 

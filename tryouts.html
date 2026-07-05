@@ -1,211 +1,448 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الاختبارات — 11 حريف</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/pages.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الاختبارات — 11 حريف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+<style>
+  @font-face{
+    font-family:'DastNevis';
+    src:url('assets/fonts/DastNevis.woff') format('woff');
+    font-weight:400;font-style:normal;font-display:swap;
+  }
+  :root{
+    --blue:#005dcc; --blue-d:#00469e; --red:#f64740; --red-d:#c01e20;
+    --yellow:#fed00d; --yellow-t:#6f5900; --yellow-d:#725c00;
+    --ink:#101c2e; --body:#424753; --lite:#f9f9ff; --lite2:#f0f3ff;
+    --foot-t:#f0f3ff; --border:#e7eeff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--lite);font-family:'Cairo',sans-serif;color:var(--ink);width:100%}
+  .canvas{width:100%;min-height:100vh;position:relative;background:var(--lite);overflow-x:hidden}
+  p{margin:0}
+  a{text-decoration:none}
+
+  .nav-inner,.section-inner,.footer-top{
+    width:100%;max-width:1280px;margin-inline:auto;
+  }
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;height:84px;
+    background:rgba(249,249,255,.9);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    box-shadow:0 10px 15px -3px rgba(16,28,46,.05),0 4px 6px -4px rgba(16,28,46,.05)}
+  .nav-inner{position:relative;height:84px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,24px)}
+  .logo img{height:52px;width:auto;display:block}
+  .nav-links{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:22px}
+  .nav-links a{font-weight:700;font-size:15px;line-height:24px;color:var(--ink);white-space:nowrap}
+  .nav-links a.active{color:var(--yellow);border-bottom:4px solid var(--yellow);padding-bottom:4px}
+  .btn-pill{background:var(--yellow);color:var(--yellow-t);font-weight:700;font-size:16px;line-height:24px;
+    border-radius:9999px;padding:8px 24px;display:inline-block}
+
+  /* HERO */
+  .hero{position:relative;height:614px;background:var(--blue);overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .hero__bg{position:absolute;inset:0}
+  .hero__bg img{width:100%;height:100%;object-fit:cover;opacity:.6}
+  .hero__overlay{position:absolute;inset:0;background:linear-gradient(270deg,var(--blue-d) 0%,rgba(0,70,158,.4) 50%,rgba(0,70,158,0) 100%)}
+  .hero__stripe{position:absolute;left:0;bottom:0;width:min(427px,40vw);height:96px;background:var(--yellow);z-index:1}
+  .hero__inner{position:relative;z-index:2;width:100%;max-width:1280px;padding:0 clamp(24px,5vw,80px);
+    display:flex;justify-content:flex-start}
+  .hero__content{max-width:672px;display:flex;flex-direction:column;align-items:flex-start;gap:24px;text-align:right}
+  .hero__badge{background:var(--red-d);color:#fff;font-weight:700;font-size:14px;line-height:20px;
+    padding:4px 16px;border-radius:9999px}
+  .hero__title{
+    font-family:'DastNevis','Cairo',sans-serif;
+    color:#fff;font-weight:400;font-size:clamp(36px,5vw,60px);line-height:75px;
+    width:100%;text-align:right;
+  }
+  .hero__sub{color:#fff;font-size:20px;line-height:32.5px;opacity:.9;max-width:560px;width:100%;text-align:right}
+  .hero__cta{align-self:flex-start;display:inline-block;background:var(--yellow);color:var(--yellow-t);font-weight:900;font-size:18px;
+    line-height:28px;padding:16px 32px;border-radius:9999px;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+
+  /* TRYOUTS */
+  .tryouts{padding:96px clamp(16px,3vw,24px)}
+  .tryouts-head{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:64px}
+  .tryouts-head h2{font-weight:900;font-size:36px;line-height:40px;color:var(--blue-d);text-align:right;width:100%}
+  .tryouts-head p{font-size:16px;line-height:24px;color:var(--body);text-align:right;width:100%}
+  .tryout-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;align-items:stretch}
+
+  .tryout-card{border-radius:12px;padding:4px;background:#fff;overflow:hidden}
+  .tryout-card__inner{background:var(--lite);border-radius:8px;padding:32px;min-height:421px;
+    display:flex;flex-direction:column;text-align:right;align-items:stretch}
+  .tryout-card__top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;direction:rtl}
+  .tryout-card__num{font-family:'Poppins',sans-serif;font-weight:900;font-size:48px;line-height:48px;color:rgba(0,70,158,.1)}
+  .tryout-card__badge{font-size:12px;font-weight:700;line-height:16px;padding:4px 12px;border-radius:9999px;white-space:nowrap}
+  .tryout-card__badge--blue{background:var(--blue);color:#fff}
+  .tryout-card__badge--yellow{background:var(--yellow);color:var(--yellow-t)}
+  .tryout-card__badge--red{background:var(--red);color:#fff}
+  .tryout-card h3{font-weight:900;font-size:24px;line-height:32px;color:var(--ink);text-align:right;margin-bottom:16px}
+  .tryout-card__details{display:flex;flex-direction:column;gap:16px;margin-bottom:32px;flex:1}
+  .tryout-card__detail{display:flex;align-items:center;justify-content:flex-start;gap:12px;direction:rtl;
+    font-weight:700;font-size:16px;line-height:24px;color:var(--body);text-align:right}
+  .tryout-card__detail svg{flex-shrink:0;width:18px;height:20px;color:var(--blue-d)}
+  .tryout-card__footer{padding-top:24px;border-top:1px solid var(--border);margin-top:auto;display:flex;justify-content:flex-end}
+  .tryout-card__btn{display:inline-block;width:auto;min-width:200px;text-align:center;padding:12px 24px;border-radius:9999px;
+    font-weight:900;font-size:16px;line-height:24px;border:2px solid var(--blue-d);color:var(--blue-d);background:transparent}
+  .tryout-card__btn--fill{background:var(--yellow);color:var(--yellow-t);border-color:var(--yellow)}
+
+  .tryout-card--featured{background:var(--blue-d);padding:4px}
+  .tryout-card--featured .tryout-card__inner{
+    background:radial-gradient(ellipse 130% 130% at 0% 0%,rgba(255,255,255,.05) 0%,transparent 50%),var(--blue)}
+  .tryout-card--featured h3{color:#fff}
+  .tryout-card--featured .tryout-card__num{color:rgba(255,255,255,.1)}
+  .tryout-card--featured .tryout-card__detail{color:rgba(255,255,255,.8)}
+  .tryout-card--featured .tryout-card__detail svg{color:var(--yellow)}
+  .tryout-card--featured .tryout-card__footer{border-color:rgba(255,255,255,.2)}
+
+  /* CRITERIA + MAP */
+  .criteria-map{background:var(--lite2);padding:96px clamp(16px,3vw,24px);overflow:hidden}
+  .criteria-map__grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .criteria-head{display:flex;align-items:center;justify-content:flex-start;gap:16px;margin-bottom:48px}
+  .criteria-head h2{font-weight:900;font-size:36px;line-height:40px;color:var(--blue-d);text-align:right}
+  .criteria-head .bar{width:48px;height:8px;background:var(--yellow);flex-shrink:0}
+  .criteria-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .crit-card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,.05);
+    display:flex;flex-direction:column;gap:16px;text-align:right;border-right:4px solid var(--blue-d);margin-bottom:0}
+  .crit-card--yellow{border-right-color:var(--yellow)}
+  .crit-card--red{border-right-color:var(--red)}
+  .crit-card--ink{border-right-color:var(--ink)}
+  .crit-card__head{display:flex;align-items:center;justify-content:flex-start;gap:16px;direction:rtl}
+  .crit-card__icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .crit-card__icon--blue{background:rgba(0,70,158,.1);color:var(--blue-d)}
+  .crit-card__icon--yellow{background:rgba(254,208,13,.1);color:var(--yellow-d)}
+  .crit-card__icon--red{background:rgba(246,71,64,.34);color:var(--red)}
+  .crit-card__icon--ink{background:rgba(16,28,46,.1);color:var(--ink)}
+  .crit-card h3{font-weight:900;font-size:20px;line-height:28px;color:var(--ink)}
+  .crit-card p{font-size:14px;line-height:22.75px;color:var(--body)}
+
+  .map-frame{display:flex;justify-content:center;padding:16px 0}
+  .map-frame__card{transform:rotate(2deg);background:#fff;border-radius:40px;padding:16px;
+    box-shadow:0 25px 50px -12px rgba(0,0,0,.25);width:100%;max-width:576px}
+  .map-frame__inner{position:relative;border-radius:32px;overflow:hidden;background:#e7eeff;aspect-ratio:561/519}
+  .map-frame__inner img{width:100%;height:100%;object-fit:cover;display:block}
+  .map-frame__overlay{position:absolute;inset:0;background:rgba(0,70,158,.2);backdrop-filter:blur(1px);pointer-events:none}
+  .map-popup{position:absolute;top:52px;right:40px;left:auto;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);
+    border-radius:16px;padding:16px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);min-width:180px}
+  .map-popup h4{font-weight:900;font-size:16px;line-height:24px;color:var(--blue-d);text-align:right;margin-bottom:8px}
+  .map-popup ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+  .map-popup li{display:flex;align-items:center;justify-content:flex-end;gap:8px;font-weight:700;font-size:12px;line-height:16px;color:var(--ink)}
+  .map-popup li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);flex-shrink:0}
+
+  /* CTA */
+  .cta-wrap{padding:64px clamp(16px,6vw,152px) 96px;background:var(--lite)}
+  .cta-inner{background:var(--blue);border-radius:50px;padding:64px;position:relative;overflow:hidden;
+    text-align:center;max-width:976px;margin-inline:auto}
+  .cta-inner::before{content:"";position:absolute;inset:0;opacity:.3;
+    background:radial-gradient(ellipse 130% 130% at 0% 0%,rgba(255,255,255,.05) 0%,transparent 50%);pointer-events:none}
+  .cta-inner h2{position:relative;color:#fff;font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1;margin-bottom:24px}
+  .cta-inner>p{position:relative;color:#fff;font-size:20px;line-height:28px;opacity:.8;max-width:672px;margin:0 auto 40px}
+  .cta-actions{position:relative;display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap}
+  .cta-btn{display:inline-block;padding:20px 48px;border-radius:9999px;font-weight:900;font-size:20px;line-height:28px}
+  .cta-btn--primary{background:var(--yellow);color:var(--yellow-t);box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+  .cta-btn--ghost{background:rgba(255,255,255,.1);color:#fff;border:2px solid rgba(255,255,255,.2);backdrop-filter:blur(6px)}
+
+  /* FOOTER */
+  .footer{background:var(--blue);border-top-left-radius:40px;border-top-right-radius:40px;color:#fff;width:100%}
+  .footer-top{display:flex;gap:40px;padding:64px clamp(16px,3vw,32px);align-items:flex-start}
+  .fcol{flex:1;display:flex;flex-direction:column;gap:16px}
+  .fcol h4{font-weight:900;font-size:20px;line-height:28px;color:#fff;text-align:right}
+  .fcol .desc{font-weight:400;font-size:16px;line-height:26px;color:var(--foot-t);text-align:right}
+  .fcol ul{list-style:none;display:flex;flex-direction:column;gap:16px;text-align:right}
+  .fcol ul li a{font-weight:400;font-size:16px;line-height:24px;color:var(--foot-t)}
+  .fcol ul li a:hover{color:#fff}
+  .brand-logo{display:flex;justify-content:flex-start;margin-bottom:8px}
+  .brand-logo img{width:79px;height:auto;display:block}
+  .social{display:flex;gap:16px;justify-content:flex-start;padding-top:8px}
+  .social a{width:40px;height:40px;border-radius:9999px;background:var(--yellow);display:flex;align-items:center;justify-content:center}
+  .social a img{width:20px;height:20px;display:block}
+  .news p{font-weight:400;font-size:16px;line-height:24px;color:var(--foot-t);text-align:right}
+  .news .inp{background:rgba(0,70,158,.2);border:1px solid rgba(0,70,158,.5);border-radius:9999px;
+    padding:6px 17px;text-align:right;color:#fff;font-size:16px;font-family:inherit;width:100%;outline:none}
+  .news .inp::placeholder{color:rgba(255,255,255,.4)}
+  .news .sub{background:var(--yellow);color:var(--yellow-t);font-weight:700;font-size:16px;line-height:24px;
+    border:none;border-radius:9999px;height:40px;width:100%;margin-top:16px;cursor:pointer}
+  .footer-bottom{border-top:1px solid rgba(0,93,204,.2);padding:32px 24px}
+  .footer-bottom p{opacity:.6;text-align:center;font-weight:400;font-size:16px;line-height:24px;color:var(--foot-t)}
+
+  @media (max-width:1024px){
+    .tryout-grid{grid-template-columns:1fr}
+    .criteria-map__grid{grid-template-columns:1fr}
+    .criteria-list{grid-template-columns:1fr}
+    .map-frame__card{max-width:100%}
+    .hero__stripe{height:64px}
+  }
+  @media (max-width:768px){
+    .nav-links{display:none}
+    .hero{height:auto;min-height:480px;padding:80px 0 120px}
+    .hero__stripe{width:60vw;height:48px}
+    .cta-inner{border-radius:28px;padding:40px 24px}
+    .cta-actions{flex-direction:column}
+    .cta-btn{width:100%;text-align:center}
+    .footer-top{flex-direction:column}
+  }
+</style>
 </head>
-<body style="padding-top:84px">
+<body>
+<div class="canvas">
 
-<header class="navbar" role="banner">
-  <div class="container navbar__inner">
-    <a href="index.html" class="navbar__logo"><img src="assets/logo.svg" alt="11 حريف" /></a>
-    <nav class="navbar__links" role="navigation">
-      <a href="index.html"        class="navbar__link">الرئيسية</a>
-      <a href="about.html"        class="navbar__link">من نحن</a>
-      <a href="how-it-works.html" class="navbar__link">كيف يعمل</a>
-      <a href="tryouts.html"      class="navbar__link active">الاختبارات</a>
-      <a href="news.html"         class="navbar__link">أخبار الحريف</a>
-      <a href="contact.html"      class="navbar__link">اتصل بنا</a>
-    </nav>
-    <a href="register.html" class="navbar__cta">سجل الآن</a>
-    <button class="navbar__hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
-  </div>
-</header>
-<nav id="mobile-menu" class="navbar__mobile">
-  <a href="index.html" class="navbar__link">الرئيسية</a><a href="about.html" class="navbar__link">من نحن</a><a href="how-it-works.html" class="navbar__link">كيف يعمل</a><a href="tryouts.html" class="navbar__link">الاختبارات</a><a href="news.html" class="navbar__link">أخبار الحريف</a><a href="contact.html" class="navbar__link">اتصل بنا</a><a href="register.html" class="navbar__cta">سجل الآن</a>
-</nav>
-
-<main>
-
-<!-- ── HERO ── -->
-<section class="page-hero" aria-labelledby="tryouts-heading">
-  <div class="page-hero__bg"><img src="assets/hero-bg.jpg" alt="" /></div>
-  <div class="page-hero__overlay"></div>
-  <div class="container page-hero__content">
-    <span class="page-hero__badge">موسم 2026</span>
-    <h1 id="tryouts-heading" class="page-hero__title">طريقك نحو الاحتراف<br /><span class="highlight">يبدأ من هنا</span></h1>
-    <p class="page-hero__sub">انضم إلى أكبر تجمع لاكتشاف المواهب في مصر. نحن نبحث عن الحريف القادم الذي سيغير وجه الكرة المصرية.</p>
-    <a href="register.html" class="btn btn--primary">سجّل في أقرب اختبار إليك</a>
-  </div>
-</section>
-
-
-<!-- ── UPCOMING TRYOUTS ── -->
-<section class="section" aria-labelledby="tryout-list-heading">
-  <div class="container">
-    <div class="section-heading reveal">
-      <h2 id="tryout-list-heading" class="section-heading__title">جولات الاختبارات القادمة</h2>
-      <div class="section-heading__bar" aria-hidden="true"></div>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
+      <nav class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">من نحن</a>
+        <a href="how-it-works.html">كيف يعمل</a>
+        <a href="training.html">التدريب</a>
+        <a href="data-profiles.html">البيانات</a>
+        <a href="success-stories.html">قصص النجاح</a>
+        <a href="partner-clubs.html">الأندية</a>
+        <a href="tryouts.html" class="active">الاختبارات</a>
+        <a href="news.html">أخبار الحريف</a>
+        <a href="faq.html">الأسئلة</a>
+        <a href="contact.html">اتصل بنا</a>
+      </nav>
+      <a href="register.html" class="btn-pill">سجل الآن</a>
     </div>
-    <div class="tryout-grid">
+  </header>
 
-      <article class="tryout-card reveal">
-        <div class="tryout-card__num num">01</div>
-        <h3>اختبارات القاهرة الكبرى</h3>
-        <div class="tryout-card__detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          15 يوليو — 30 يوليو
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="tryouts-heading">
+      <div class="hero__bg">
+        <img src="assets/tryouts-hero.jpg" alt="">
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__stripe" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <div class="hero__content">
+          <span class="hero__badge">موسم 2026</span>
+          <h1 id="tryouts-heading" class="hero__title">طريقك نحو الاحتراف يبدأ من هنا</h1>
+          <p class="hero__sub">انضم إلى أكبر تجمع لاكتشاف المواهب في مصر. نحن نبحث عن الحريف القادم الذي سيغير وجه الكرة المصرية.</p>
+          <a href="register.html" class="hero__cta">سجّل في أقرب اختبار إليك</a>
         </div>
-        <div class="tryout-card__detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          استاد القاهرة الدولي
-        </div>
-        <div class="tryout-card__label">1,200+ مشارك</div>
-        <div class="tryout-card__footer">
-          <a href="register.html" class="btn btn--outline" style="width:100%;justify-content:center">عرض التفاصيل</a>
-        </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="tryout-card tryout-card--featured reveal">
-        <div class="tryout-card__num num">02</div>
-        <span class="tryout-card__badge">الأكثر طلباً</span>
-        <h3>جولة عروس المتوسط</h3>
-        <div class="tryout-card__detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          5 أغسطس — 12 أغسطس
+    <!-- TRYOUTS -->
+    <section class="tryouts" aria-labelledby="tryout-list-heading">
+      <div class="section-inner">
+        <div class="tryouts-head">
+          <h2 id="tryout-list-heading">جولات الاختبارات القادمة</h2>
+          <p>اختر المرحلة المناسبة لك وابدأ رحلتك</p>
         </div>
-        <div class="tryout-card__detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          نادي الاتحاد السكندري
-        </div>
-        <div class="tryout-card__label">850+ مشارك</div>
-        <div class="tryout-card__footer" style="border-color:rgba(255,255,255,.2)">
-          <a href="register.html" class="btn btn--primary" style="width:100%;justify-content:center;background:var(--c-accent);color:var(--c-accent-dark)">احجز مقعدك الآن</a>
-        </div>
-      </article>
+        <div class="tryout-grid">
 
-      <article class="tryout-card reveal">
-        <div class="tryout-card__num num">03</div>
-        <h3>ملتقى مواهب الجنوب</h3>
-        <div class="tryout-card__detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          20 أغسطس — 27 أغسطس
-        </div>
-        <div class="tryout-card__detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          استاد أسيوط الرياضي
-        </div>
-        <div class="tryout-card__label">600+ مشارك</div>
-        <div class="tryout-card__footer">
-          <a href="register.html" class="btn btn--outline" style="width:100%;justify-content:center">عرض التفاصيل</a>
-        </div>
-      </article>
+          <article class="tryout-card">
+            <div class="tryout-card__inner">
+              <div class="tryout-card__top">
+                <span class="tryout-card__badge tryout-card__badge--blue">الموسم الصيفي</span>
+                <span class="tryout-card__num">01</span>
+              </div>
+              <h3>اختبارات القاهرة الكبرى</h3>
+              <div class="tryout-card__details">
+                <div class="tryout-card__detail">
+                  <span>15 يوليو - 30 يوليو</span>
+                  <svg viewBox="0 0 18 20" fill="currentColor" aria-hidden="true"><path d="M16 2h-1V0h-2v2H5V0H3v2H2C.9 2 0 2.9 0 4v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 16H2V7h14v11z"/></svg>
+                </div>
+                <div class="tryout-card__detail">
+                  <span>استاد القاهرة الدولي</span>
+                  <svg viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.6 0 0 3.6 0 8c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+                </div>
+                <div class="tryout-card__detail">
+                  <span>1,200+ مشارك</span>
+                  <svg viewBox="0 0 22 16" fill="currentColor" aria-hidden="true"><path d="M11 8c2.2 0 4-1.8 4-4S13.2 0 11 0 7 1.8 7 4s1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg>
+                </div>
+              </div>
+              <div class="tryout-card__footer">
+                <a href="register.html" class="tryout-card__btn">عرض التفاصيل</a>
+              </div>
+            </div>
+          </article>
 
-    </div>
-  </div>
-</section>
+          <article class="tryout-card tryout-card--featured">
+            <div class="tryout-card__inner">
+              <div class="tryout-card__top">
+                <span class="tryout-card__badge tryout-card__badge--yellow">الأكثر طلباً</span>
+                <span class="tryout-card__num">02</span>
+              </div>
+              <h3>جولة عروس المتوسط</h3>
+              <div class="tryout-card__details">
+                <div class="tryout-card__detail">
+                  <span>5 أغسطس - 12 أغسطس</span>
+                  <svg viewBox="0 0 18 20" fill="currentColor" aria-hidden="true"><path d="M16 2h-1V0h-2v2H5V0H3v2H2C.9 2 0 2.9 0 4v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 16H2V7h14v11z"/></svg>
+                </div>
+                <div class="tryout-card__detail">
+                  <span>نادي الاتحاد السكندري</span>
+                  <svg viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.6 0 0 3.6 0 8c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+                </div>
+                <div class="tryout-card__detail">
+                  <span>850+ مشارك</span>
+                  <svg viewBox="0 0 22 16" fill="currentColor" aria-hidden="true"><path d="M11 8c2.2 0 4-1.8 4-4S13.2 0 11 0 7 1.8 7 4s1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg>
+                </div>
+              </div>
+              <div class="tryout-card__footer">
+                <a href="register.html" class="tryout-card__btn tryout-card__btn--fill">احجز مقعدك الآن</a>
+              </div>
+            </div>
+          </article>
 
+          <article class="tryout-card">
+            <div class="tryout-card__inner">
+              <div class="tryout-card__top">
+                <span class="tryout-card__badge tryout-card__badge--red">صعيد مصر</span>
+                <span class="tryout-card__num">03</span>
+              </div>
+              <h3>ملتقى مواهب الجنوب</h3>
+              <div class="tryout-card__details">
+                <div class="tryout-card__detail">
+                  <span>20 أغسطس - 27 أغسطس</span>
+                  <svg viewBox="0 0 18 20" fill="currentColor" aria-hidden="true"><path d="M16 2h-1V0h-2v2H5V0H3v2H2C.9 2 0 2.9 0 4v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 16H2V7h14v11z"/></svg>
+                </div>
+                <div class="tryout-card__detail">
+                  <span>استاد أسيوط الرياضي</span>
+                  <svg viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.6 0 0 3.6 0 8c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+                </div>
+                <div class="tryout-card__detail">
+                  <span>600+ مشارك</span>
+                  <svg viewBox="0 0 22 16" fill="currentColor" aria-hidden="true"><path d="M11 8c2.2 0 4-1.8 4-4S13.2 0 11 0 7 1.8 7 4s1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg>
+                </div>
+              </div>
+              <div class="tryout-card__footer">
+                <a href="register.html" class="tryout-card__btn">عرض التفاصيل</a>
+              </div>
+            </div>
+          </article>
 
-<!-- ── MAP + CRITERIA ── -->
-<section class="section" style="background:var(--c-bg)">
-  <div class="container">
-    <div class="map-section">
-      <div>
-        <span class="section-label">تغطيتنا في مصر</span>
-        <h2 class="section-title">نصل إلى كل<br /><span class="highlight">محافظة</span></h2>
-        <ul class="map-section__list reveal">
-          <li>القاهرة والجيزة</li>
-          <li>الإسكندرية</li>
-          <li>الدقهلية</li>
-          <li>المنيا وأسيوط</li>
-          <li>بورسعيد والسويس</li>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRITERIA + MAP -->
+    <section class="criteria-map" aria-labelledby="criteria-heading">
+      <div class="section-inner criteria-map__grid">
+        <div>
+          <div class="criteria-head">
+            <h2 id="criteria-heading">معايير التقييم الفني</h2>
+            <span class="bar" aria-hidden="true"></span>
+          </div>
+          <div class="criteria-list">
+            <article class="crit-card">
+              <div class="crit-card__head">
+                <h3>السرعة</h3>
+                <div class="crit-card__icon crit-card__icon--blue" aria-hidden="true">
+                  <svg width="20" height="16" viewBox="0 0 20 16" fill="currentColor"><path d="M10 0L12 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/></svg>
+                </div>
+              </div>
+              <p>قياس سرعة الاستجابة، الجري بالكرة وبدونها، والقدرة على تغيير الاتجاه المفاجئ.</p>
+            </article>
+            <article class="crit-card crit-card--yellow">
+              <div class="crit-card__head">
+                <h3>اللياقة</h3>
+                <div class="crit-card__icon crit-card__icon--yellow" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a4 4 0 00-4 4v1H4v3h2v6h3v-6h2v6h3v-6h2V7h-2V6a4 4 0 00-4-4z"/></svg>
+                </div>
+              </div>
+              <p>التحمل البدني العالي والقدرة على الحفاظ على مستوى الأداء طوال مدة المباراة.</p>
+            </article>
+            <article class="crit-card crit-card--red">
+              <div class="crit-card__head">
+                <h3>المهارة التقنية</h3>
+                <div class="crit-card__icon crit-card__icon--red" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="8"/></svg>
+                </div>
+              </div>
+              <p>التحكم في الكرة، دقة التمرير، مهارات المراوغة، والقدرة على التسديد المتقن.</p>
+            </article>
+            <article class="crit-card crit-card--ink">
+              <div class="crit-card__head">
+                <h3>الأداء التكتيكي</h3>
+                <div class="crit-card__icon crit-card__icon--ink" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M4 4h12v12H4z"/></svg>
+                </div>
+              </div>
+              <p>الوعي بالمركز، قراءة اللعب، التحرك الذكي في المساحات، والعمل الجماعي.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <div class="map-frame__card">
+            <div class="map-frame__inner">
+              <img src="assets/tryouts-map.png" alt="خريطة تغطية الاختبارات في مصر">
+              <div class="map-frame__overlay" aria-hidden="true"></div>
+              <div class="map-popup">
+                <h4>تغطيتنا في مصر</h4>
+                <ul>
+                  <li>القاهرة والجيزة</li>
+                  <li>الإسكندرية</li>
+                  <li>الدقهلية</li>
+                  <li>المنيا وأسيوط</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-wrap" aria-label="دعوة للتسجيل">
+      <div class="cta-inner">
+        <h2>هل أنت الحريف القادم؟</h2>
+        <p>لا تدع الفرصة تفوتك. سجل بياناتك الآن واحجز مكانك في تجارب الأداء القادمة في محافظتك.</p>
+        <div class="cta-actions">
+          <a href="register.html" class="cta-btn cta-btn--primary">سجّل في أقرب اختبار إليك</a>
+          <a href="contact.html" class="cta-btn cta-btn--ghost">تواصل مع كشاف</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="fcol">
+        <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
+        <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
+        <div class="social">
+          <a href="#" aria-label="إنستغرام"><img src="assets/social-ig.svg" alt=""></a>
+          <a href="#" aria-label="تويتر"><img src="assets/social-tw.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="how-it-works.html">رحلة اللاعب</a></li>
+          <li><a href="training.html">التدريب</a></li>
+          <li><a href="tryouts.html">مواقع الاختبارات</a></li>
+          <li><a href="success-stories.html">قصص النجاح</a></li>
         </ul>
       </div>
-      <div class="map-section__map reveal">
-        <img src="assets/hero-bg.jpg" alt="خريطة مصر" style="opacity:.4;border-radius:var(--r-xl)" />
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--c-white);font-size:var(--text-xl);font-weight:700;text-align:center">
-          تغطية<br />شاملة<br />لجمهورية مصر العربية
-        </div>
+      <div class="fcol">
+        <h4>الدعم والخصوصية</h4>
+        <ul>
+          <li><a href="#">سياسة الخصوصية</a></li>
+          <li><a href="#">الشروط والأحكام</a></li>
+          <li><a href="#">خريطة الموقع</a></li>
+          <li><a href="faq.html">الأسئلة الشائعة</a></li>
+        </ul>
+      </div>
+      <div class="fcol news">
+        <h4>النشرة الإخبارية</h4>
+        <p>اشترك لتصلك مواعيد الاختبارات الجديدة.</p>
+        <form onsubmit="return false">
+          <input class="inp" type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني">
+          <button class="sub" type="submit">اشترك</button>
+        </form>
       </div>
     </div>
-  </div>
-</section>
-
-
-<!-- ── EVALUATION CRITERIA ── -->
-<section class="section" aria-labelledby="criteria-heading">
-  <div class="container">
-    <div class="section-heading reveal">
-      <h2 id="criteria-heading" class="section-heading__title">معايير التقييم الفني</h2>
-      <div class="section-heading__bar" aria-hidden="true"></div>
+    <div class="footer-bottom">
+      <p>© 2024 11 حريف. جميع الحقوق محفوظة.</p>
     </div>
-    <div class="criteria-grid">
-      <article class="criteria-card reveal">
-        <div class="criteria-card__icon">⚡</div>
-        <div>
-          <h3>السرعة</h3>
-          <p>قياس سرعة الاستجابة، الجري بالكرة وبدونها، والقدرة على تغيير الاتجاه المفاجئ.</p>
-        </div>
-      </article>
-      <article class="criteria-card reveal">
-        <div class="criteria-card__icon">💪</div>
-        <div>
-          <h3>اللياقة</h3>
-          <p>التحمل البدني العالي والقدرة على الحفاظ على مستوى الأداء طوال مدة المباراة.</p>
-        </div>
-      </article>
-      <article class="criteria-card reveal">
-        <div class="criteria-card__icon">⚽</div>
-        <div>
-          <h3>المهارة</h3>
-          <p>التحكم في الكرة، دقة التمرير، مهارات المراوغة، والقدرة على التسديد المتقن.</p>
-        </div>
-      </article>
-      <article class="criteria-card reveal">
-        <div class="criteria-card__icon">🧠</div>
-        <div>
-          <h3>الأداء التكتيكي</h3>
-          <p>الوعي بالمركز، قراءة اللعب، التحرك الذكي في المساحات، والعمل الجماعي.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+  </footer>
 
-
-<!-- ── CTA ── -->
-<section class="cta-section" aria-label="دعوة للتسجيل">
-  <div class="container">
-    <h2 class="reveal">هل أنت الحريف القادم؟</h2>
-    <p class="reveal">لا تدع الفرصة تفوتك. سجل بياناتك الآن واحجز مكانك في تجارب الأداء القادمة في محافظتك.</p>
-    <div class="cta-section__actions reveal">
-      <a href="register.html" class="btn btn--primary">سجّل الآن</a>
-      <a href="contact.html"  class="btn btn--outline" style="border-color:rgba(255,255,255,.4);color:var(--c-white)">تواصل مع كشاف</a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer" role="contentinfo">
-  <div class="footer__main container">
-    <div class="footer__brand reveal"><div class="footer__logo"><img src="assets/logo.svg" alt="11 حريف" /></div><p class="footer__tagline">المستقبل يبدأ من هنا. منصتكم الأولى للوصول إلى القمة في عالم كرة القدم المصرية والعالمية.</p><div class="footer__socials"><a href="#" class="footer__social-btn"><img src="assets/social-ig.svg" alt="" /></a><a href="#" class="footer__social-btn"><img src="assets/social-tw.svg" alt="" /></a></div></div>
-    <nav class="footer__col reveal reveal-delay-1"><h3 class="footer__col-title">روابط سريعة</h3><ul class="footer__links"><li><a href="about.html" class="footer__link">من نحن</a></li><li><a href="how-it-works.html" class="footer__link">رحلة اللاعب</a></li><li><a href="tryouts.html" class="footer__link">مواقع الاختبارات</a></li><li><a href="success-stories.html" class="footer__link">قصص النجاح</a></li></ul></nav>
-    <nav class="footer__col reveal reveal-delay-2"><h3 class="footer__col-title">الدعم والخصوصية</h3><ul class="footer__links"><li><a href="#" class="footer__link">سياسة الخصوصية</a></li><li><a href="#" class="footer__link">الشروط والأحكام</a></li><li><a href="#" class="footer__link">خريطة الموقع</a></li><li><a href="faq.html" class="footer__link">الأسئلة الشائعة</a></li></ul></nav>
-    <div class="footer__col reveal reveal-delay-3"><h3 class="footer__col-title">النشرة الإخبارية</h3><p class="footer__newsletter-desc">اشترك لتصلك مواعيد الاختبارات الجديدة.</p><form class="footer__form" novalidate><input type="email" class="footer__input" placeholder="بريدك الإلكتروني" /><button type="submit" class="footer__subscribe">اشترك</button></form></div>
-  </div>
-  <div class="footer__bottom"><p class="footer__copyright">© 2024 11 حريف. جميع الحقوق محفوظة.</p></div>
-</footer>
-
-<script type="module" src="js/main.js"></script>
+</div>
 </body>
 </html>
