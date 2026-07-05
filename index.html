@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/motion.css" />
 </head>
 
 <body>
@@ -23,7 +24,7 @@
 <!-- ══════════════════════════════════════
      NAVBAR
 ══════════════════════════════════════ -->
-<header class="navbar" role="banner">
+<header class="navbar fade-in" role="banner">
   <div class="container navbar__inner">
 
     <!-- Logo (RTL: right side = start) -->
@@ -92,21 +93,21 @@
   <!-- Content -->
   <div class="container hero__content">
 
-    <span class="hero__badge">THE ELITE SCOUTING PLATFORM</span>
+    <span class="hero__badge fade-in">THE ELITE SCOUTING PLATFORM</span>
 
-    <h1 id="hero-heading" class="hero__heading">
+    <h1 id="hero-heading" class="hero__heading fade-in fade-in-delay-1">
       اكتشف موهبتك.
       <span>ابنِ مستقبلك.</span>
     </h1>
 
-    <p class="hero__sub">
+    <p class="hero__sub fade-in fade-in-delay-2">
       المنصة الأولى لاكتشاف وتطوير مواهب كرة القدم في مصر.<br />
       نضعك على الطريق الصحيح نحو الاحتراف العالمي.
     </p>
 
-    <div class="hero__actions">
-      <a href="register.html" class="btn btn--primary">سجّل الآن كلاعب</a>
-      <a href="tryouts.html"  class="btn btn--outline">تعرف على الاختبارات</a>
+    <div class="hero__actions fade-in fade-in-delay-3">
+      <a href="register.html" class="btn btn--primary hover-glow">سجّل الآن كلاعب</a>
+      <a href="tryouts.html"  class="btn btn--outline hover-lift">تعرف على الاختبارات</a>
     </div>
 
   </div>
@@ -124,7 +125,7 @@
 <!-- ══════════════════════════════════════
      STATS BAR
 ══════════════════════════════════════ -->
-<div class="stats-bar-wrapper" aria-label="إحصائيات المنصة">
+<div class="stats-bar-wrapper reveal" aria-label="إحصائيات المنصة">
   <div class="stats-bar">
 
     <div class="stats-bar__item">
@@ -217,7 +218,7 @@
 <section id="tryouts" class="countdown" aria-labelledby="countdown-heading">
   <div class="container">
 
-    <h2 id="countdown-heading" class="countdown__title">
+    <h2 id="countdown-heading" class="countdown__title reveal">
       العد التنازلي للاختبارات القادمة (القاهرة)
     </h2>
 
@@ -264,13 +265,13 @@
       بالشراكة مع رابطة الأندية المصرية المحترفة
     </p>
 
-    <div class="partners__logos reveal reveal-delay-1" role="list" aria-label="الأندية الشريكة">
-      <img src="assets/club1.png" alt="النادي الشريك 1" class="partners__logo" loading="lazy" role="listitem" />
-      <img src="assets/club2.png" alt="النادي الشريك 2" class="partners__logo" loading="lazy" role="listitem" />
-      <img src="assets/club3.png" alt="النادي الشريك 3" class="partners__logo" loading="lazy" role="listitem" />
-      <img src="assets/club4.png" alt="النادي الشريك 4" class="partners__logo" loading="lazy" role="listitem" />
-      <img src="assets/club5.png" alt="النادي الشريك 5" class="partners__logo" loading="lazy" role="listitem" />
-      <img src="assets/club6.png" alt="النادي الشريك 6" class="partners__logo" loading="lazy" role="listitem" />
+    <div class="partners__logos stagger-children reveal reveal-delay-1" role="list" aria-label="الأندية الشريكة">
+      <img src="assets/club1.png" alt="النادي الشريك 1" class="partners__logo hover-lift" loading="lazy" role="listitem" />
+      <img src="assets/club2.png" alt="النادي الشريك 2" class="partners__logo hover-lift" loading="lazy" role="listitem" />
+      <img src="assets/club3.png" alt="النادي الشريك 3" class="partners__logo hover-lift" loading="lazy" role="listitem" />
+      <img src="assets/club4.png" alt="النادي الشريك 4" class="partners__logo hover-lift" loading="lazy" role="listitem" />
+      <img src="assets/club5.png" alt="النادي الشريك 5" class="partners__logo hover-lift" loading="lazy" role="listitem" />
+      <img src="assets/club6.png" alt="النادي الشريك 6" class="partners__logo hover-lift" loading="lazy" role="listitem" />
     </div>
 
   </div>
@@ -284,10 +285,10 @@
 ══════════════════════════════════════ -->
 <footer id="contact" class="footer" role="contentinfo">
 
-  <div class="footer__main container">
+  <div class="footer__main container stagger-children">
 
     <!-- Brand column -->
-    <div class="footer__brand reveal reveal-delay-3">
+    <div class="footer__brand">
       <div class="footer__logo">
         <img src="assets/logotransparent.svg" alt="11 حريف" />
       </div>
@@ -305,7 +306,7 @@
     </div>
 
     <!-- Quick links -->
-    <nav class="footer__col reveal reveal-delay-2" aria-labelledby="footer-links-heading">
+    <nav class="footer__col" aria-labelledby="footer-links-heading">
       <h3 id="footer-links-heading" class="footer__col-title">روابط سريعة</h3>
       <ul class="footer__links">
         <li><a href="about.html"          class="footer__link">من نحن</a></li>
@@ -316,7 +317,7 @@
     </nav>
 
     <!-- Support links -->
-    <nav class="footer__col reveal reveal-delay-1" aria-labelledby="footer-support-heading">
+    <nav class="footer__col" aria-labelledby="footer-support-heading">
       <h3 id="footer-support-heading" class="footer__col-title">الدعم والخصوصية</h3>
       <ul class="footer__links">
         <li><a href="#"        class="footer__link">سياسة الخصوصية</a></li>
@@ -327,7 +328,7 @@
     </nav>
 
     <!-- Newsletter -->
-    <div class="footer__col reveal" aria-labelledby="footer-newsletter-heading">
+    <div class="footer__col" aria-labelledby="footer-newsletter-heading">
       <h3 id="footer-newsletter-heading" class="footer__col-title">النشرة الإخبارية</h3>
       <p class="footer__newsletter-desc">اشترك لتصلك مواعيد الاختبارات الجديدة.</p>
       <form class="footer__form" novalidate aria-label="نموذج الاشتراك في النشرة">

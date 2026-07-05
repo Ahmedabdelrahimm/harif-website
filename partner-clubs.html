@@ -6,7 +6,8 @@
 <title>الأندية الشريكة — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   :root{
     --blue:#005dcc; --blue-d:#00469e; --red:#f64740;
@@ -199,7 +200,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -222,7 +223,7 @@
   <main>
     <!-- HERO -->
     <section class="hero-wrap" aria-labelledby="clubs-heading">
-      <div class="hero-card">
+      <div class="hero-card reveal-scale">
         <div class="hero-card__pattern" aria-hidden="true"></div>
         <div class="hero-card__content">
           <div class="hero-card__copy">
@@ -252,7 +253,7 @@
             <p class="clubs__desc">نفتخر بالتعاون مع أعرق الأندية المصرية والمراكز الرياضية<br>الطموحة عبر الجمهورية.</p>
           </div>
         </div>
-        <div class="clubs__grid">
+        <div class="clubs__grid stagger-children">
           <article class="club-card"><img src="assets/club1.png" alt=""><span>نادي القاهرة</span></article>
           <article class="club-card"><img src="assets/club2.png" alt=""><span>صقور الدلتا</span></article>
           <article class="club-card"><img src="assets/club3.png" alt=""><span>اتحاد السويس</span></article>
@@ -301,7 +302,7 @@
 
     <!-- TESTIMONIAL -->
     <section class="testimonial-wrap" aria-label="شهادة شريك">
-      <div class="testimonial">
+      <div class="testimonial reveal">
         <div class="testimonial__watermark" aria-hidden="true">HAREEF</div>
         <div class="testimonial__content">
           <div class="testimonial__mark" aria-hidden="true"></div>
@@ -333,7 +334,7 @@
             <a href="contact.html" class="package__btn">تواصل معنا</a>
           </article>
 
-          <article class="package package--gold">
+          <article class="package package--gold reveal-scale hover-lift">
             <span class="package__tier package__tier--gold">RECOMMENDED</span>
             <h3>ذهبي</h3>
             <ul class="package__list">
@@ -380,7 +381,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -425,5 +426,6 @@
   </footer>
 
 </div>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

@@ -1,13 +1,10 @@
 import { initCountdown } from './countdown.js';
+import { initMotion } from './animations.js';
 
 /* ── Navbar scroll behaviour ── */
 const navbar = document.querySelector('.navbar');
 const hamburger = document.querySelector('.navbar__hamburger');
 const mobileMenu = document.querySelector('.navbar__mobile');
-
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
 
 hamburger?.addEventListener('click', () => {
   const isOpen = mobileMenu.classList.toggle('open');
@@ -40,64 +37,6 @@ function setActiveLink() {
   });
 }
 window.addEventListener('scroll', setActiveLink, { passive: true });
-
-
-/* ── Intersection Observer for reveal animations ── */
-const observerOpts = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
-
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, observerOpts);
-
-document.querySelectorAll('.reveal, .bento__card').forEach(el => {
-  revealObserver.observe(el);
-});
-
-
-/* ── Stats counter animation ── */
-function animateNumber(el, target) {
-  const duration = 1600;
-  const start = performance.now();
-  const isFloat = String(target).includes('.');
-  const suffix = el.dataset.suffix || '';
-
-  function frame(now) {
-    const t = Math.min((now - start) / duration, 1);
-    // Ease-out cubic
-    const eased = 1 - Math.pow(1 - t, 3);
-    const value = Math.floor(eased * target);
-    el.textContent = value.toLocaleString('en-US') + (t < 1 ? '' : suffix);
-    if (t < 1) requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-}
-
-const statsObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const raw = el.dataset.target || el.textContent.replace(/[^0-9.]/g, '');
-      const num = parseFloat(raw);
-      if (!isNaN(num)) animateNumber(el, num);
-      statsObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stats-bar__number').forEach(el => {
-  const text = el.textContent;
-  const num = parseFloat(text.replace(/[^0-9.]/g, ''));
-  const suffix = text.replace(/[0-9,.]/g, '');
-  el.dataset.target = num;
-  el.dataset.suffix = suffix;
-  el.textContent = '0' + suffix;
-  statsObserver.observe(el);
-});
 
 
 /* ── Newsletter form ── */
@@ -136,5 +75,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 /* ── Init ── */
+initMotion();
 initCountdown();
 setActiveLink();

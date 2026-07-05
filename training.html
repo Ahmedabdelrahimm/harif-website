@@ -6,7 +6,8 @@
 <title>التطوير والتدريب — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   @font-face{
     font-family:'DastNevis';
@@ -196,7 +197,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -224,8 +225,8 @@
       </div>
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__inner">
-        <h1 id="training-heading" class="hero__title">التطوير و التدريب</h1>
-        <p class="hero__sub">نحن لا نكتشف المواهب فحسب، بل نصقلها من خلال برامج تدريبية احترافية تضاهي<br>الأكاديميات العالمية.</p>
+        <h1 id="training-heading" class="hero__title fade-in">التطوير و التدريب</h1>
+        <p class="hero__sub fade-in fade-in-delay-1">نحن لا نكتشف المواهب فحسب، بل نصقلها من خلال برامج تدريبية احترافية تضاهي<br>الأكاديميات العالمية.</p>
       </div>
     </section>
 
@@ -276,7 +277,7 @@
         <div class="pyramid__content">
           <h2 id="pyramid-heading">هرم تطوير "الحريف"</h2>
           <p>منهجيتنا تعتمد على تدرج منطقي يضمن وصول اللاعب إلى أعلى مستويات الأداء<br>الرياضي والذهني.</p>
-          <div class="pyramid__steps">
+          <div class="pyramid__steps stagger-children">
             <div class="pyramid__step">
               <div class="pyramid__step-num pyramid__step-num--04">04</div>
               <div class="pyramid__step-text">
@@ -317,7 +318,7 @@
     </section>
 
     <!-- MENTORSHIP -->
-    <section class="mentor" aria-labelledby="mentor-heading">
+    <section class="mentor reveal" aria-labelledby="mentor-heading">
       <div class="mentor__inner">
         <div class="mentor__visual">
           <div class="mentor__glow" aria-hidden="true"></div>
@@ -346,7 +347,7 @@
         <h2 id="gallery-heading">معرض التدريبات</h2>
         <div class="gallery__bar" aria-hidden="true"></div>
       </div>
-      <div class="gallery__grid">
+      <div class="gallery__grid stagger-children">
         <div class="gallery__item gallery__item--hero">
           <img src="assets/training-gallery-1.jpg" alt="تدريب الفريق">
         </div>
@@ -366,7 +367,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -409,5 +410,6 @@
   </footer>
 
 </div>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

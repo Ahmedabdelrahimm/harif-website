@@ -6,7 +6,8 @@
 <title>البيانات والملفات — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   :root{
     --blue:#005dcc; --blue-d:#00469e; --red:#f64740;
@@ -179,7 +180,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -203,7 +204,7 @@
     <!-- HERO -->
     <section class="hero" aria-labelledby="data-heading">
       <div class="hero__inner">
-        <div class="hero__copy">
+        <div class="hero__copy reveal-right">
           <span class="hero__badge">تحليل البيانات الرياضي</span>
           <h1 id="data-heading" class="hero__title">
             حول موهبتك إلى<br>
@@ -215,7 +216,7 @@
             <a href="how-it-works.html" class="hero__btn hero__btn--ghost">شاهد فيديو الشرح</a>
           </div>
         </div>
-        <div class="hero__panel-wrap">
+        <div class="hero__panel-wrap reveal-left">
           <div class="hero__panel" aria-hidden="true">
             <div class="hero__stats-row">
               <div class="hero__stat">
@@ -246,10 +247,10 @@
         <h2 id="features-heading">ماذا نوفر لك في "ملف الحريف"؟</h2>
         <div class="features__bar" aria-hidden="true"></div>
       </div>
-      <div class="bento">
+      <div class="bento reveal">
         <div class="bento__row bento__row--top">
 
-          <article class="bento__card bento__card--doc">
+          <article class="bento__card bento__card--doc reveal-scale-child">
             <span class="bento__num">01</span>
             <div class="bento__icon"><img src="assets/Icon2.svg" alt="" aria-hidden="true"></div>
             <div class="bento__body">
@@ -262,7 +263,7 @@
             </div>
           </article>
 
-          <article class="bento__card bento__card--progress">
+          <article class="bento__card bento__card--progress reveal-scale-child">
             <div class="bento__icon"><img src="assets/icon-growth.svg" alt="" aria-hidden="true"></div>
             <div class="bento__body">
               <h3>متابعة التقدم</h3>
@@ -270,7 +271,7 @@
             </div>
           </article>
 
-          <article class="bento__card bento__card--scout">
+          <article class="bento__card bento__card--scout reveal-scale-child">
             <div class="bento__icon"><img src="assets/Icon3.svg" alt="" aria-hidden="true"></div>
             <div class="bento__body">
               <h3>تقارير الكشافة</h3>
@@ -281,7 +282,7 @@
         </div>
         <div class="bento__row bento__row--bottom">
 
-          <article class="bento__card bento__card--chat">
+          <article class="bento__card bento__card--chat reveal-scale-child">
             <span class="bento__badge">متاح الآن</span>
             <div class="bento__icon"><img src="assets/Icon7.svg" alt="" aria-hidden="true"></div>
             <div class="bento__body">
@@ -290,7 +291,7 @@
             </div>
           </article>
 
-          <article class="bento__card bento__card--privacy">
+          <article class="bento__card bento__card--privacy reveal-scale-child">
             <div class="bento__icon"><img src="assets/Icon6.svg" alt="" aria-hidden="true"></div>
             <div class="bento__body">
               <h3>خصوصية بياناتك هي أولويتنا</h3>
@@ -308,22 +309,22 @@
         <h2 id="preview-heading">كيف سيبدو ملفك؟</h2>
         <p>واجهة مستخدم عصرية، سريعة، وسهلة الاستخدام لكل "حريف"</p>
       </div>
-      <div class="preview__grid">
-        <article class="preview__card">
+      <div class="preview__grid stagger-children">
+        <article class="preview__card hover-lift">
           <img src="assets/profile-screen-1.jpg" alt="شاشة الملف الشخصي">
           <div class="preview__card-text">
             <h3>الملف الشخصي</h3>
             <p>نظرة عامة على الإنجازات والجوائز</p>
           </div>
         </article>
-        <article class="preview__card">
+        <article class="preview__card hover-lift">
           <img src="assets/profile-screen-2.jpg" alt="شاشة مركز التحليلات">
           <div class="preview__card-text">
             <h3>مركز التحليلات</h3>
             <p>تحليل فني دقيق لكل لمسة للكرة</p>
           </div>
         </article>
-        <article class="preview__card">
+        <article class="preview__card hover-lift">
           <img src="assets/profile-screen-3.jpg" alt="شاشة معرض الفيديو">
           <div class="preview__card-text">
             <h3>معرض الفيديو</h3>
@@ -344,7 +345,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -388,5 +389,6 @@
   </footer>
 
 </div>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

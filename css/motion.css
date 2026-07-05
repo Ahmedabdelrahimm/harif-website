@@ -1,0 +1,275 @@
+/* ════════════════════════════════════════════
+   11 حريف — shared motion layer
+════════════════════════════════════════════ */
+:root {
+  --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-base: 300ms;
+  --motion-slow: 500ms;
+}
+
+/* ── Scroll reveals ── */
+.reveal,
+.reveal-right,
+.reveal-left,
+.reveal-scale {
+  opacity: 0;
+  transition:
+    opacity var(--motion-slow) var(--motion-ease),
+    transform var(--motion-slow) var(--motion-ease);
+  will-change: opacity, transform;
+}
+
+.reveal {
+  transform: translateY(28px);
+}
+
+.reveal-right {
+  transform: translateX(24px);
+}
+
+.reveal-left {
+  transform: translateX(-24px);
+}
+
+.reveal-scale {
+  transform: translateY(20px) scale(0.97);
+}
+
+.reveal.visible,
+.reveal-right.visible,
+.reveal-left.visible,
+.reveal-scale.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
+
+/* ── Load-time fade ── */
+.fade-in {
+  opacity: 0;
+  animation: motionFadeIn 560ms var(--motion-ease) forwards;
+}
+
+.fade-in-delay-1 { animation-delay: 100ms; }
+.fade-in-delay-2 { animation-delay: 200ms; }
+.fade-in-delay-3 { animation-delay: 300ms; }
+.fade-in-delay-4 { animation-delay: 400ms; }
+
+@keyframes motionFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Stagger children ── */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--motion-slow) var(--motion-ease),
+    transform var(--motion-slow) var(--motion-ease);
+}
+
+.stagger-children.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger-children.is-visible > *:nth-child(1)  { transition-delay: 0ms; }
+.stagger-children.is-visible > *:nth-child(2)  { transition-delay: 100ms; }
+.stagger-children.is-visible > *:nth-child(3)  { transition-delay: 200ms; }
+.stagger-children.is-visible > *:nth-child(4)  { transition-delay: 300ms; }
+.stagger-children.is-visible > *:nth-child(5)  { transition-delay: 400ms; }
+.stagger-children.is-visible > *:nth-child(6)  { transition-delay: 500ms; }
+.stagger-children.is-visible > *:nth-child(7)  { transition-delay: 600ms; }
+.stagger-children.is-visible > *:nth-child(8)  { transition-delay: 700ms; }
+
+/* Bento / card grids (index + data-profiles) */
+.bento__card,
+.reveal-scale-child {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--motion-slow) var(--motion-ease),
+    transform var(--motion-slow) var(--motion-ease);
+}
+
+.bento__card.visible,
+.reveal-scale-child.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.bento__card:nth-child(1) { transition-delay: 0ms; }
+.bento__card:nth-child(2) { transition-delay: 100ms; }
+.bento__card:nth-child(3) { transition-delay: 200ms; }
+.bento__card:nth-child(4) { transition-delay: 300ms; }
+.bento__card:nth-child(5) { transition-delay: 400ms; }
+.bento__card:nth-child(6) { transition-delay: 500ms; }
+
+/* ── Progress / data bars ── */
+.data__track { overflow: hidden; }
+
+.motion-bar {
+  transform: scaleX(0);
+  transform-origin: inline-end;
+  transition: transform 1s var(--motion-ease);
+}
+
+.motion-bar.is-visible {
+  transform: scaleX(1);
+}
+
+/* ── Hover utilities ── */
+.hover-lift {
+  transition:
+    transform var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(16, 28, 46, 0.18);
+}
+
+.hover-glow {
+  transition:
+    transform var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease);
+}
+
+.hover-glow:hover {
+  box-shadow:
+    0 8px 10px -6px rgba(0, 70, 158, 0.2),
+    0 20px 25px -5px rgba(254, 208, 13, 0.25);
+}
+
+/* Partner / logo rows */
+.partners__logo,
+.partner-box,
+.club-logo {
+  transition: transform var(--motion-base) var(--motion-ease), opacity var(--motion-base) var(--motion-ease);
+}
+
+.partners__logo:hover,
+.partner-box:hover {
+  transform: scale(1.03);
+}
+
+/* Nav scroll state */
+.nav.is-scrolled,
+.nav.scrolled,
+.navbar.is-scrolled,
+.navbar.scrolled {
+  box-shadow: 0 4px 24px rgba(16, 28, 46, 0.08);
+}
+
+.nav,
+.navbar {
+  transition:
+    background var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease);
+}
+
+/* Mobile menu motion (index) */
+.navbar__mobile {
+  transition:
+    transform var(--motion-base) var(--motion-ease),
+    opacity var(--motion-base) var(--motion-ease);
+}
+
+/* Buttons / pills */
+button,
+.btn,
+.btn-pill,
+.navbar__cta,
+.form-submit,
+.news-tag,
+.faq-cat {
+  transition:
+    transform 180ms var(--motion-ease),
+    background var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease);
+}
+
+button:active,
+.btn:active,
+.form-submit:active {
+  transform: scale(0.98);
+}
+
+.news-tag {
+  transition-duration: 200ms;
+}
+
+/* FAQ accordion — chevron only (display toggled in page CSS) */
+.faq-item__chev {
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+
+/* Map pin bounce (tryouts / contact) */
+.motion-pin {
+  animation: motionPinBounce 1.2s var(--motion-ease) 0.4s both;
+}
+
+@keyframes motionPinBounce {
+  0%   { transform: translateY(0); }
+  35%  { transform: translateY(-8px); }
+  70%  { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
+/* Stepper fill */
+.stepper__fill {
+  transition: width var(--motion-slow) var(--motion-ease);
+}
+
+/* Live pulse */
+.motion-live-pulse {
+  animation: motionLivePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes motionLivePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.65; transform: scale(1.15); }
+}
+
+/* Story card tilt settle */
+.story-card.is-visible .story-card__tilt {
+  transition: transform var(--motion-slow) var(--motion-ease);
+  transform: rotate(0deg) !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-right,
+  .reveal-left,
+  .reveal-scale,
+  .stagger-children > *,
+  .bento__card,
+  .reveal-scale-child,
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .motion-bar {
+    transform: scaleX(1) !important;
+  }
+}

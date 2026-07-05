@@ -6,7 +6,8 @@
 <title>الاختبارات — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   @font-face{
     font-family:'DastNevis';
@@ -187,7 +188,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -217,10 +218,10 @@
       <div class="hero__stripe" aria-hidden="true"></div>
       <div class="hero__inner">
         <div class="hero__content">
-          <span class="hero__badge">موسم 2026</span>
-          <h1 id="tryouts-heading" class="hero__title">طريقك نحو الاحتراف يبدأ من هنا</h1>
-          <p class="hero__sub">انضم إلى أكبر تجمع لاكتشاف المواهب في مصر. نحن نبحث عن الحريف القادم الذي سيغير وجه الكرة المصرية.</p>
-          <a href="register.html" class="hero__cta">سجّل في أقرب اختبار إليك</a>
+          <span class="hero__badge fade-in">موسم 2026</span>
+          <h1 id="tryouts-heading" class="hero__title fade-in fade-in-delay-1">طريقك نحو الاحتراف يبدأ من هنا</h1>
+          <p class="hero__sub fade-in fade-in-delay-2">انضم إلى أكبر تجمع لاكتشاف المواهب في مصر. نحن نبحث عن الحريف القادم الذي سيغير وجه الكرة المصرية.</p>
+          <a href="register.html" class="hero__cta fade-in fade-in-delay-3 hover-glow">سجّل في أقرب اختبار إليك</a>
         </div>
       </div>
     </section>
@@ -232,7 +233,7 @@
           <h2 id="tryout-list-heading">جولات الاختبارات القادمة</h2>
           <p>اختر المرحلة المناسبة لك وابدأ رحلتك</p>
         </div>
-        <div class="tryout-grid">
+        <div class="tryout-grid stagger-children">
 
           <article class="tryout-card">
             <div class="tryout-card__inner">
@@ -367,7 +368,7 @@
           </div>
         </div>
 
-        <div class="map-frame">
+        <div class="map-frame reveal-scale">
           <div class="map-frame__card">
             <div class="map-frame__inner">
               <img src="assets/tryouts-map.png" alt="خريطة تغطية الاختبارات في مصر">
@@ -393,15 +394,15 @@
         <h2>هل أنت الحريف القادم؟</h2>
         <p>لا تدع الفرصة تفوتك. سجل بياناتك الآن واحجز مكانك في تجارب الأداء القادمة في محافظتك.</p>
         <div class="cta-actions">
-          <a href="register.html" class="cta-btn cta-btn--primary">سجّل في أقرب اختبار إليك</a>
-          <a href="contact.html" class="cta-btn cta-btn--ghost">تواصل مع كشاف</a>
+          <a href="register.html" class="cta-btn cta-btn--primary hover-lift">سجّل في أقرب اختبار إليك</a>
+          <a href="contact.html" class="cta-btn cta-btn--ghost hover-lift">تواصل مع كشاف</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -444,5 +445,6 @@
   </footer>
 
 </div>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

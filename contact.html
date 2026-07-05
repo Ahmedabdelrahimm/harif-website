@@ -6,7 +6,8 @@
 <title>تواصل معنا — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   @font-face{
     font-family:'DastNevis';
@@ -159,7 +160,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -182,7 +183,7 @@
   <main class="contact-wrap">
     <div class="contact-page">
 
-      <aside class="info-col" aria-label="معلومات التواصل">
+      <aside class="info-col reveal-right" aria-label="معلومات التواصل">
         <div class="info-card">
           <div class="info-card__glow" aria-hidden="true"></div>
           <h2>دعنا نصنع النجم القادم.</h2>
@@ -229,17 +230,17 @@
           </div>
         </div>
 
-        <div class="map-card">
+        <div class="map-card reveal-scale">
           <img src="assets/tryouts-map.png" alt="خريطة تغطية المحافظات">
           <div class="map-card__overlay" aria-hidden="true"></div>
           <div class="map-card__banner">
             <p>تغطية شاملة لجميع المحافظات</p>
-            <div class="map-card__pin" aria-hidden="true"></div>
+            <div class="map-card__pin motion-pin" aria-hidden="true"></div>
           </div>
         </div>
       </aside>
 
-      <div class="form-card">
+      <div class="form-card reveal-left">
         <header class="form-head">
           <span class="form-badge">CONTACT FORM</span>
           <h1 id="contact-heading">أرسل لنا رسالتك</h1>
@@ -292,7 +293,7 @@
         <div class="live-bar" aria-live="polite">
           <div class="live-bar__label">
             <span>مباشر الآن:</span>
-            <span class="live-dot" aria-hidden="true"></span>
+            <span class="live-dot motion-live-pulse" aria-hidden="true"></span>
           </div>
           <p>كشافو نادي الزمالك يتابعون اختبارات محافظة القاهرة اليوم... فريق "11 حريف" في طريقه إلى أسيوط غداً...</p>
         </div>
@@ -302,7 +303,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -347,5 +348,6 @@
   </footer>
 
 </div>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

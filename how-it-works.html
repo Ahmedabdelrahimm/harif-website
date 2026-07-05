@@ -6,7 +6,8 @@
 <title>كيف يعمل — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   :root{
     --blue:#005dcc; --blue-d:#00469e; --red:#f64740;
@@ -166,7 +167,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -191,22 +192,22 @@
     <section class="hero" aria-labelledby="how-heading">
       <div class="hero__deco" aria-hidden="true"></div>
       <div class="hero__inner">
-        <div class="hero__badge">
+        <div class="hero__badge fade-in">
           <span>THE KINETIC JOURNEY</span>
           <img src="assets/Icon.svg" alt="" aria-hidden="true">
         </div>
-        <h1 id="how-heading" class="hero__title">
+        <h1 id="how-heading" class="hero__title fade-in fade-in-delay-1">
           <span class="light">رحلة الحريف من</span>
           <span class="bold">الملاعب إلى الأضواء</span>
         </h1>
-        <p class="hero__sub">اكتشف مسار تطورك المهني من خلال نظام تقييم متطور يجمع بين الأداء البدني والبيانات التقنية المتقدمة.</p>
+        <p class="hero__sub fade-in fade-in-delay-2">اكتشف مسار تطورك المهني من خلال نظام تقييم متطور يجمع بين الأداء البدني والبيانات التقنية المتقدمة.</p>
       </div>
     </section>
 
     <!-- 4 STEPS -->
     <section class="journey" aria-labelledby="steps-heading">
       <h2 id="steps-heading" class="sr-only">خطوات الرحلة</h2>
-      <div class="journey__track">
+      <div class="journey__track stagger-children">
 
         <article class="journey-step">
           <div class="journey-step__num-wrap">
@@ -272,7 +273,7 @@
     </section>
 
     <!-- WHY -->
-    <section class="why" aria-labelledby="why-heading">
+    <section class="why reveal" aria-labelledby="why-heading">
       <div class="why__inner">
         <div class="why__visual">
           <span class="why__badge">فرصتك حقيقية!</span>
@@ -338,7 +339,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -381,5 +382,6 @@
   </footer>
 
 </div>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

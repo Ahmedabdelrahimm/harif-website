@@ -6,7 +6,8 @@
 <title>أخبار الحريف — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   @font-face{
     font-family:'DastNevis';
@@ -165,7 +166,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -188,7 +189,7 @@
   <main class="news-page">
 
     <header class="news-hero">
-      <div class="news-hero__copy">
+      <div class="news-hero__copy fade-in">
         <h1 class="news-hero__title">
           مدونة <span class="brand">الحريف</span>: قصص من قلب الملعب
         </h1>
@@ -210,7 +211,7 @@
 
     <section class="news-grid" aria-label="المقالات" id="news-grid">
 
-      <a href="#" class="featured" data-cat="stories" data-title="رحلة أحمد من الشارع إلى تجارب الأداء الاحترافية">
+      <a href="#" class="featured reveal-scale" data-cat="stories" data-title="رحلة أحمد من الشارع إلى تجارب الأداء الاحترافية">
         <img src="assets/news-featured.jpg" alt="">
         <div class="featured__overlay" aria-hidden="true"></div>
         <div class="featured__body">
@@ -229,8 +230,8 @@
         </div>
       </a>
 
-      <div class="side-list">
-        <a href="#" class="side-card" data-cat="tips" data-title="كيف تحافظ على لياقتك في المنزل؟">
+      <div class="side-list stagger-children">
+        <a href="#" class="side-card hover-lift" data-cat="tips" data-title="كيف تحافظ على لياقتك في المنزل؟">
           <div class="side-card__img"><img src="assets/news-card-1.jpg" alt=""></div>
           <div class="side-card__body">
             <span class="side-card__cat">نصائح تدريبية</span>
@@ -238,7 +239,7 @@
             <span class="side-card__date">10 مارس 2024</span>
           </div>
         </a>
-        <a href="#" class="side-card" data-cat="news" data-title="موعد انطلاق تجارب الأداء للموسم الجديد">
+        <a href="#" class="side-card hover-lift" data-cat="news" data-title="موعد انطلاق تجارب الأداء للموسم الجديد">
           <div class="side-card__img"><img src="assets/news-card-2.jpg" alt=""></div>
           <div class="side-card__body">
             <span class="side-card__cat">أخبار</span>
@@ -246,7 +247,7 @@
             <span class="side-card__date">8 مارس 2024</span>
           </div>
         </a>
-        <a href="#" class="side-card" data-cat="tips" data-title="التمركز الصحيح للمدافع العصري">
+        <a href="#" class="side-card hover-lift" data-cat="tips" data-title="التمركز الصحيح للمدافع العصري">
           <div class="side-card__img"><img src="assets/news-card-3.jpg" alt=""></div>
           <div class="side-card__body">
             <span class="side-card__cat">نصائح تدريبية</span>
@@ -254,7 +255,7 @@
             <span class="side-card__date">5 مارس 2024</span>
           </div>
         </a>
-        <a href="#" class="side-card" data-cat="ads" data-title="شراكة جديدة مع أحد أكبر الأندية الأوروبية">
+        <a href="#" class="side-card hover-lift" data-cat="ads" data-title="شراكة جديدة مع أحد أكبر الأندية الأوروبية">
           <div class="side-card__img"><img src="assets/news-card-4.jpg" alt=""></div>
           <div class="side-card__body">
             <span class="side-card__cat">إعلانات</span>
@@ -266,7 +267,7 @@
 
     </section>
 
-    <section class="newsletter" aria-label="النشرة الإخبارية">
+    <section class="newsletter reveal" aria-label="النشرة الإخبارية">
       <div class="newsletter__glow-a" aria-hidden="true"></div>
       <div class="newsletter__glow-b" aria-hidden="true"></div>
       <div class="newsletter__inner">
@@ -298,7 +299,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -379,5 +380,6 @@
   search.addEventListener('input', applyFilters);
 })();
 </script>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

@@ -6,7 +6,8 @@
 <title>التسجيل — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   :root{
     --blue:#005dcc; --blue-d:#00469e;
@@ -122,7 +123,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -145,7 +146,7 @@
   <main class="register-wrap">
     <div class="register-page">
 
-      <header class="register-hero">
+      <header class="register-hero fade-in">
         <h1 id="register-heading">كن الحريف القادم</h1>
         <p>ابدأ رحلتك الاحترافية الآن وسجل في تجارب الأداء الرسمية</p>
       </header>
@@ -161,7 +162,7 @@
         </div>
       </nav>
 
-      <div class="form-card">
+      <div class="form-card reveal-scale">
         <div class="form-card__glow" aria-hidden="true"></div>
         <form novalidate aria-labelledby="register-heading">
           <div class="form-grid">
@@ -235,11 +236,11 @@
 
       <section class="partners" aria-label="شركاؤنا">
         <h2>بالتعاون مع كبرى المؤسسات الرياضية</h2>
-        <div class="partners__logos">
-          <div class="partner-box">SPORTS CO</div>
-          <div class="partner-box">NILE TV</div>
-          <div class="partner-box">MINISTRY</div>
-          <div class="partner-box">EFA</div>
+        <div class="partners__logos stagger-children">
+          <div class="partner-box hover-lift">SPORTS CO</div>
+          <div class="partner-box hover-lift">NILE TV</div>
+          <div class="partner-box hover-lift">MINISTRY</div>
+          <div class="partner-box hover-lift">EFA</div>
         </div>
       </section>
 
@@ -247,7 +248,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -292,5 +293,6 @@
   </footer>
 
 </div>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

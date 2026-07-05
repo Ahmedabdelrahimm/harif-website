@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   :root{
     --blue:#005dcc; --blue-d:#00469e; --red:#f64740; --yellow:#fed00d;
@@ -165,7 +166,7 @@
 <div class="canvas">
 
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo">
         <img src="assets/logo.svg" alt="11 حريف">
@@ -190,11 +191,11 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-media">
+      <div class="hero-media reveal-left">
         <img data-fallback src="assets/about-player.jpg" alt="لاعب كرة قدم شاب يتدرب">
         <div class="photo-badge">مستقبل الكرة المصرية</div>
       </div>
-      <div class="hero-copy">
+      <div class="hero-copy reveal-right">
         <div class="mission-label">رسالتنا</div>
         <div class="mission-inner">
           <div class="h1">
@@ -271,7 +272,7 @@
     </section>
 
     <!-- QUOTE -->
-    <section class="quote">
+    <section class="quote reveal-scale">
       <div class="quote-inner">
       <div class="quote-band">
         <div class="quote-card">
@@ -298,7 +299,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <!-- brand (rightmost) -->
       <div class="fcol">
         <div class="brand-logo">
@@ -359,5 +360,6 @@
     });
   });
 </script>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>

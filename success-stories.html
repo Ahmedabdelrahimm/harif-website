@@ -6,7 +6,8 @@
 <title>قصص النجاح — 11 حريف</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/motion.css">
 <style>
   :root{
     --blue:#005dcc; --blue-d:#00469e; --red:#f64740;
@@ -188,7 +189,7 @@
 <body>
 <div class="canvas">
 
-  <header class="nav">
+  <header class="nav fade-in">
     <div class="nav-inner">
       <a href="index.html" class="logo"><img src="assets/logo.svg" alt="11 حريف"></a>
       <nav class="nav-links">
@@ -210,7 +211,7 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero" aria-labelledby="stories-heading">
+    <section class="hero reveal" aria-labelledby="stories-heading">
       <div class="hero__inner">
         <div class="hero__copy">
           <span class="hero__badge">EDITORIAL SPECIAL</span>
@@ -225,7 +226,7 @@
 
     <!-- PLAYER STORIES -->
     <section class="stories" aria-label="قصص اللاعبين">
-      <div class="stories__grid">
+      <div class="stories__grid stagger-children">
 
         <article class="story-card">
           <div class="story-card__tilt" aria-hidden="true"></div>
@@ -289,7 +290,7 @@
 
     <!-- QUOTE BANNER -->
     <section class="quote-wrap" aria-label="اقتباس">
-      <div class="quote">
+      <div class="quote reveal-scale">
         <div class="quote__glow" aria-hidden="true"></div>
         <div class="quote__icon" aria-hidden="true"></div>
         <h2>الموهبة تبدأ هنا.</h2>
@@ -298,7 +299,7 @@
     </section>
 
     <!-- DATA POWER -->
-    <section class="data" aria-labelledby="data-heading">
+    <section class="data reveal" aria-labelledby="data-heading">
       <div class="data__inner">
         <div class="data__copy">
           <h2 id="data-heading">قوة البيانات</h2>
@@ -309,14 +310,14 @@
                 <span>92%</span>
                 <span>دقة التمرير</span>
               </div>
-              <div class="data__track"><div class="data__fill data__fill--blue"></div></div>
+              <div class="data__track"><div class="data__fill data__fill--blue motion-bar"></div></div>
             </div>
             <div class="data__bar-card">
               <div class="data__bar-head data__bar-head--red">
                 <span>34.5 km/h</span>
                 <span>السرعة القصوى</span>
               </div>
-              <div class="data__track"><div class="data__fill data__fill--red"></div></div>
+              <div class="data__track"><div class="data__fill data__fill--red motion-bar"></div></div>
             </div>
           </div>
         </div>
@@ -408,7 +409,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-top">
+    <div class="footer-top stagger-children">
       <div class="fcol">
         <div class="brand-logo"><img src="assets/logotransparent.svg" alt="11 حريف"></div>
         <p class="desc">المستقبل يبدأ من هنا. منصتكم الأولى<br>للوصول إلى القمة في عالم كرة القدم<br>المصرية والعالمية.</p>
@@ -452,5 +453,6 @@
   </footer>
 
 </div>
+<script type="module" src="js/animations.js"></script>
 </body>
 </html>
